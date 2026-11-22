@@ -49,13 +49,152 @@
     }
 
     ::selection {
-      background-color: #FFF385;
-      color: #111111;
+      background-color: #111111;
+      color: #FAF9F6;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    /* ========================================================
+       VERCEL-STYLE CUSTOM MOUSE POINTER ANIMATION
+       ======================================================== */
+    @media (pointer: fine) {
+      body {
+        cursor: default;
+      }
+
+      .custom-cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background-color: #111111;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate3d(-100px, -100px, 0);
+        transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+        opacity: 0;
+      }
+
+      .custom-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 36px;
+        border: 1.5px solid rgba(17, 17, 17, 0.45);
+        background-color: rgba(17, 17, 17, 0.02);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99998;
+        transform: translate3d(-100px, -100px, 0);
+        transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                    height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.25s ease,
+                    border-color 0.25s ease,
+                    border-radius 0.25s ease,
+                    opacity 0.2s ease;
+        opacity: 0;
+        will-change: transform;
+      }
+
+      /* Hovering over clickable interactive elements (Vercel fluid ring expansion) */
+      body.cursor-hover .custom-cursor-ring {
+        width: 52px;
+        height: 52px;
+        border-color: #111111;
+        background-color: rgba(17, 17, 17, 0.07);
+        backdrop-filter: invert(0.05);
+      }
+
+      body.cursor-hover .custom-cursor-dot {
+        transform: scale(0.65);
+      }
+
+      /* Hovering over redaction bars: crosshair laser indicator */
+      body.cursor-redact .custom-cursor-ring {
+        width: 60px;
+        height: 60px;
+        border-color: #D93829;
+        background-color: rgba(217, 56, 41, 0.08);
+      }
+
+      body.cursor-redact .custom-cursor-dot {
+        background-color: #D93829;
+        transform: scale(1.4);
+      }
+
+      /* Mouse down click compression pulse */
+      body.cursor-active .custom-cursor-ring {
+        transform: scale(0.8);
+        border-color: #111111;
+      }
+
+      body.cursor-active .custom-cursor-dot {
+        transform: scale(0.4);
+      }
+    }
+
+    @media (pointer: coarse) {
+      .custom-cursor-dot,
+      .custom-cursor-ring {
+        display: none !important;
+      }
+    }
+
+    /* ========================================================
+       REDACTION BAR: RIGHT-SWIPE WIPE ANIMATION (NO YELLOW TEXT)
+       ======================================================== */
+    .redaction-bar {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      vertical-align: -2px;
+      cursor: pointer;
+      padding: 0 4px;
+      margin: 0 2px;
+      border-radius: 2px;
+      background-color: transparent;
+      user-select: none;
+    }
+
+    .redaction-text {
+      display: inline-block;
+      color: #111111 !important; /* Pure ink black, no yellow text */
+      font-family: inherit;
+      font-weight: 500;
+    }
+
+    /* The solid black redaction bar overlay that covers the text */
+    .redaction-bar::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #111111;
+      border-radius: 2px;
+      transform: translateX(0%);
+      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* When pointer hovers over the black bar: right-swipe wipe reveal! */
+    .redaction-bar:hover::after,
+    .redaction-bar.revealed::after {
+      transform: translateX(102%);
+    }
+
+    .redaction-bar:hover,
+    .redaction-bar.revealed {
+      user-select: text;
     }
 
     /* Reference Editorial Serif Typography */
@@ -95,7 +234,7 @@
       font-family: var(--font-typewriter);
     }
 
-    /* Authentic Rubber Stamp */
+    /* Rubber Stamp */
     .rubber-stamp {
       display: inline-block;
       padding: 0.2rem 0.55rem;
@@ -119,7 +258,7 @@
       transform: rotate(0deg) scale(1.04);
     }
 
-    /* Paperclip Photo Container (Reference Image 2) */
+    /* Paperclip Photo Container */
     .photo-paper-frame {
       position: relative;
       background: #FFFFFF;
@@ -161,24 +300,100 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 15%; /* Centers headshot with balanced headroom */
+      object-position: center 15%;
       filter: grayscale(100%) contrast(112%) brightness(102%);
       display: block;
-      transition: filter 0.3s ease;
     }
 
-    /* Manila Dossier Folder Cards (Reference Image 3) */
+    /* ========================================================
+       SECTION C: PINNED HORIZONTAL DOSSIER SCROLL & OPENING ANIMATION
+       ======================================================== */
+    .cases-pin-container {
+      position: relative;
+      height: 340vh;
+      border-bottom: 1px solid var(--color-paper-border);
+    }
+
+    @media (max-width: 768px) {
+      .cases-pin-container {
+        height: auto;
+      }
+    }
+
+    .cases-sticky-wrapper {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      padding: 2.5rem 0;
+      box-sizing: border-box;
+      background-color: var(--color-paper);
+    }
+
+    @media (max-width: 768px) {
+      .cases-sticky-wrapper {
+        position: static;
+        height: auto;
+        padding: 4rem 0 3rem 0;
+      }
+    }
+
+    .cases-track-viewport {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 2.8rem 0 2.2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .cases-track-viewport {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.5rem 1rem 2rem 1rem;
+      }
+    }
+
+    .cases-horizontal-track {
+      display: flex;
+      gap: 2.5rem;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+      padding-left: max(1.5rem, calc((100vw - 1280px) / 2 + 1rem));
+      padding-right: 25vw;
+      align-items: stretch;
+    }
+
+    @media (max-width: 768px) {
+      .cases-horizontal-track {
+        transform: none !important;
+        padding-left: 0;
+        padding-right: 1.5rem;
+        gap: 1.25rem;
+      }
+    }
+
+    /* Manila Dossier Folder Cards */
     .manila-card {
       position: relative;
-      flex: 0 0 340px;
-      width: 340px;
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      flex: 0 0 375px;
+      width: 375px;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s ease;
       cursor: pointer;
       user-select: none;
+      scroll-snap-align: start;
     }
 
-    .manila-card:hover {
-      transform: translateY(-5px);
+    @media (max-width: 480px) {
+      .manila-card {
+        flex: 0 0 85vw;
+        width: 85vw;
+      }
     }
 
     .manila-top-tab {
@@ -189,9 +404,9 @@
       border-top: 1px solid var(--color-manila-border);
       border-left: 1px solid var(--color-manila-border);
       border-right: 1px solid var(--color-manila-border);
-      padding: 0.3rem 1.25rem 0.25rem 1.25rem;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 8px;
+      padding: 0.35rem 1.4rem 0.28rem 1.4rem;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 9px;
       font-family: var(--font-mono);
       font-size: 0.68rem;
       font-weight: 700;
@@ -200,6 +415,7 @@
       position: relative;
       bottom: -1px;
       z-index: 1;
+      transition: transform 0.35s ease, background-color 0.35s ease;
     }
 
     .manila-fastener-dot {
@@ -210,57 +426,116 @@
       display: inline-block;
     }
 
+    /* Peeking confidential document that slides out when folder opens */
     .manila-peeking-sheet {
       background: var(--color-white-sheet);
       border: 1px solid var(--color-manila-border);
       border-bottom: none;
-      padding: 0.65rem 1rem 0.75rem 1rem;
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
+      padding: 0.75rem 1.15rem 0.85rem 1.15rem;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.35rem;
       position: relative;
       z-index: 2;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transform: translateY(4px);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+      will-change: transform;
     }
 
     .manila-card-body {
       background: var(--color-manila-body);
       border: 1px solid var(--color-manila-border);
-      padding: 1.5rem;
+      padding: 1.65rem;
       position: relative;
       z-index: 3;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
-      min-height: 185px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+      min-height: 220px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      transition: box-shadow 0.35s ease, border-color 0.35s ease;
     }
 
-    /* Redaction Bar */
-    .redaction-bar {
-      display: inline;
-      position: relative;
-      background-color: var(--color-ink);
-      color: transparent;
-      user-select: none;
-      cursor: pointer;
-      padding: 0.08em 0.35em;
-      margin: 0 0.15em;
-      border-radius: 1px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-decoration-break: clone;
-      -webkit-box-decoration-break: clone;
+    /* ========================================================
+       OPENING ANIMATION: Active & In-View / Hovered States
+       ======================================================== */
+    /* Base unopened/incoming state */
+    .manila-card {
+      transform: perspective(1200px) rotateY(-8deg) scale(0.97);
+      opacity: 0.92;
     }
 
-    .redaction-bar.revealed,
-    .redaction-bar:hover,
-    .redaction-bar:focus {
-      background-color: #FFF385 !important;
-      color: var(--color-ink) !important;
-      user-select: text;
-      box-shadow: 0 0 0 2px #E6D24A;
+    /* Unsealed / Active state triggered when scrolled into view */
+    .manila-card.is-active {
+      transform: perspective(1200px) rotateY(0deg) scale(1);
+      opacity: 1;
+    }
+
+    .manila-card.is-active .manila-peeking-sheet {
+      transform: translateY(-28px);
+      box-shadow: 0 -12px 24px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .manila-card.is-active .manila-top-tab {
+      transform: translateY(-3px);
+      background: #CBB796;
+    }
+
+    /* Interactive hover state: folder pulls forward with full depth */
+    .manila-card:hover {
+      transform: perspective(1200px) translateY(-10px) scale(1.025) !important;
+      opacity: 1 !important;
+      z-index: 10;
+    }
+
+    .manila-card:hover .manila-peeking-sheet {
+      transform: translateY(-38px) rotate(-0.5deg);
+      box-shadow: 0 -16px 30px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .manila-card:hover .manila-top-tab {
+      transform: translateY(-5px);
+      background: #C3AF8E;
+    }
+
+    .manila-card:hover .manila-card-body {
+      box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.18), 0 4px 14px rgba(0, 0, 0, 0.08);
+      border-color: #A89574;
+    }
+
+    .manila-card .rubber-stamp {
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+    }
+
+    .manila-card.is-active .rubber-stamp,
+    .manila-card:hover .rubber-stamp {
+      transform: rotate(-2deg) scale(1.08);
+    }
+
+    .manila-inspect-cue {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.15rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed rgba(17, 17, 17, 0.18);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #111111;
+      letter-spacing: 0.08em;
+      opacity: 0.75;
+      transition: opacity 0.25s ease, color 0.25s ease;
+    }
+
+    .manila-card:hover .manila-inspect-cue {
+      opacity: 1;
+      color: #D93829;
     }
 
     /* Tactile Buttons */
@@ -300,7 +575,6 @@
       background-color: rgba(17, 17, 17, 0.05);
     }
 
-    /* Clean metadata text */
     .meta-tag {
       font-family: var(--font-mono);
       font-size: 0.68rem;
@@ -342,7 +616,7 @@
       display: flex;
     }
 
-    /* Hand-drawn Signature */
+    /* Signature */
     .signature-path {
       stroke-dasharray: 1000;
       stroke-dashoffset: 1000;
@@ -353,7 +627,6 @@
       to { stroke-dashoffset: 0; }
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar {
       height: 6px;
       width: 6px;
@@ -365,17 +638,19 @@
       background: #A8A090;
     }
 
-    /* Layout Utility Containers */
     .max-w-7xl { max-width: 82rem; margin-left: auto; margin-right: auto; }
     .px-4 { padding-left: 1.25rem; padding-right: 1.25rem; }
     .px-6 { padding-left: 1.75rem; padding-right: 1.75rem; }
-    .py-16 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
     .py-20 { padding-top: 5.5rem; padding-bottom: 5.5rem; }
     .hairline-b { border-bottom: 1px solid var(--color-paper-border); }
     .hairline-t { border-top: 1px solid var(--color-paper-border); }
   </style>
 </head>
 <body>
+
+  <!-- VERCEL-STYLE CUSTOM CURSOR ELEMENTS -->
+  <div id="cursorDot" class="custom-cursor-dot"></div>
+  <div id="cursorRing" class="custom-cursor-ring"></div>
 
   <!-- BOOT PRELOADER OVERLAY -->
   <div id="preloader" onclick="skipPreloader()">
@@ -412,7 +687,7 @@
     </div>
   </div>
 
-  <!-- STICKY TOP TELEMETRY HEADER (Exact Match: Reference Image 1) -->
+  <!-- STICKY TOP TELEMETRY HEADER -->
   <header style="position: sticky; top: 0; z-index: 100; width: 100%; background-color: rgba(232, 229, 223, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-paper-border);">
     <div class="max-w-7xl px-4" style="height: 3.25rem; display: flex; align-items: center; justify-content: space-between;">
       
@@ -446,11 +721,11 @@
     </div>
   </header>
 
-  <!-- HERO SECTION (Exact Match: Reference Image 1) -->
+  <!-- HERO SECTION -->
   <section id="top" style="padding: 3rem 0 5rem 0;" class="hairline-b">
     <div class="max-w-7xl px-4">
       
-      <!-- Right-Aligned Meta Details (Status, Work Permit, Location) -->
+      <!-- Right-Aligned Meta Details -->
       <div style="display: flex; justify-content: flex-end; margin-bottom: 2rem;">
         <div style="display: flex; flex-direction: column; gap: 1.25rem; text-align: right; max-width: 260px;" class="font-mono">
           <div>
@@ -499,7 +774,7 @@
     </div>
   </section>
 
-  <!-- SECTION A: THE SUBJECT (Exact Match: Reference Image 2) -->
+  <!-- SECTION A: THE SUBJECT (With Right-Swipe Redaction & Centered Paperclip Photo) -->
   <section id="subject" class="py-20 hairline-b">
     <div class="max-w-7xl px-4">
       
@@ -521,12 +796,11 @@
       <!-- 2-Column Split: Clipped Physical Photo (Left) + Dossier Typewriter Card (Right) -->
       <div style="display: grid; grid-template-columns: 320px 1fr; gap: 3.5rem; align-items: start;" id="subjectGrid">
         
-        <!-- LEFT: Realistic Paperclip Photo (Exact Match Image 2) -->
+        <!-- LEFT: Realistic Paperclip Photo (Centered Headshot) -->
         <div>
           <div class="photo-paper-frame">
             <!-- Silver Paperclip Wire SVG attached at top-left -->
             <svg class="paperclip-svg" viewBox="0 0 24 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Outer wire loop -->
               <path d="M 6 18 V 40 C 6 46 9.5 50 14.5 50 C 19.5 50 22 46 22 40 V 12 C 22 5.5 17.5 2 12 2 C 6.5 2 2 5.5 2 12 V 38" stroke="#555555" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M 6 18 V 40 C 6 46 9.5 50 14.5 50 C 19.5 50 22 46 22 40 V 12 C 22 5.5 17.5 2 12 2 C 6.5 2 2 5.5 2 12 V 38" stroke="#D8D8D8" stroke-width="1.2" stroke-linecap="round"/>
             </svg>
@@ -543,7 +817,7 @@
           </div>
         </div>
 
-        <!-- RIGHT: Typewriter Monospace Dossier Card (Exact Match Image 2) -->
+        <!-- RIGHT: Typewriter Monospace Dossier Card with Right-Swipe Wipe Redaction Bars -->
         <div style="display: flex; flex-direction: column; gap: 2rem;">
           
           <div style="background: #DFDAD1; border: 1px solid rgba(17,17,17,0.18); padding: 2.25rem; border-radius: 2px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: relative;">
@@ -564,20 +838,32 @@
               </div>
             </div>
 
-            <!-- Body in Typewriter Font with Interactive Redaction Bars -->
+            <!-- Body in Typewriter Font with Right-Swipe Redaction Bars (No Yellow Text) -->
             <p class="font-typewriter" style="font-size: 1.05rem; line-height: 1.85; color: #111111;">
               Computer science student (B.Tech 2027), based in Bhubaneswar, India, studying at 
-              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">GITA Autonomous College</span>. 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Hover to wipe or tap to reveal">
+                <span class="redaction-text">GITA Autonomous College</span>
+              </span>. 
               Operating at the intersection of 
-              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">human-computer interaction</span> 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Hover to wipe or tap to reveal">
+                <span class="redaction-text">human-computer interaction</span>
+              </span> 
               and 
-              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">applied machine learning</span>. 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Hover to wipe or tap to reveal">
+                <span class="redaction-text">applied machine learning</span>
+              </span>. 
               Built PostMint AI: a multilingual generative marketing engine that synthesizes commercial posters and localized copy in English, Hindi, and Odia. Also builds full-stack web applications in Next.js and Node.js, and architected the enterprise incident triage system for 
-              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">National Aluminium Company Limited (NALCO)</span>, 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Hover to wipe or tap to reveal">
+                <span class="redaction-text">National Aluminium Company Limited (NALCO)</span>
+              </span>, 
               accelerating routing velocity by 
-              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">400% across departments</span>. 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Hover to wipe or tap to reveal">
+                <span class="redaction-text">400% across departments</span>
+              </span>. 
               Currently cleared for 
-              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">immediate deployment to product engineering teams</span>. 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Hover to wipe or tap to reveal">
+                <span class="redaction-text">immediate deployment to product engineering teams</span>
+              </span>. 
               Status: available immediately.
             </p>
 
@@ -648,7 +934,6 @@
         </h2>
       </div>
 
-      <!-- Sticky Telemetry Status Bar -->
       <div id="stickyTelemetryBar" class="font-mono" style="position: sticky; top: 3.25rem; z-index: 50; padding: 0.85rem 1.25rem; background: #111111; color: #F4F2ED; border: 1px solid #111111; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
           <span style="width: 7px; height: 7px; background: #D93829; border-radius: 50%; display: inline-block;"></span>
@@ -663,10 +948,8 @@
         </div>
       </div>
 
-      <!-- 5 Sequential Epochs -->
       <div style="display: flex; flex-direction: column; gap: 1.25rem;">
         
-        <!-- Epoch 01 -->
         <div class="epoch-card" onmouseenter="updateTelemetry('01/05', '0.912', '0.0100', 'Machine Learning & Applied AI', 'High initial gradient descent. Baseline mathematical convergence established.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -692,7 +975,6 @@
           </div>
         </div>
 
-        <!-- Epoch 02 -->
         <div class="epoch-card" onmouseenter="updateTelemetry('02/05', '0.431', '0.0050', 'Architecture, Backend & Security', 'Loss halved. Server throughput, relational constraints, and security boundary verified.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -717,7 +999,6 @@
           </div>
         </div>
 
-        <!-- Epoch 03 -->
         <div class="epoch-card" onmouseenter="updateTelemetry('03/05', '0.187', '0.0025', 'Frontend Engineering & Creative UI', 'Sub-0.200 loss regime. Layout shifts minimized; interaction frames hitting 60fps.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -742,7 +1023,6 @@
           </div>
         </div>
 
-        <!-- Epoch 04 -->
         <div class="epoch-card" onmouseenter="updateTelemetry('04/05', '0.064', '0.0010', 'Product Design & UX Systems', 'Asymptotic refinement. Visual hierarchy, affordances, and cognitive friction eliminated.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -766,7 +1046,6 @@
           </div>
         </div>
 
-        <!-- Epoch 05 -->
         <div class="epoch-card" onmouseenter="updateTelemetry('05/05', '0.0012', '0.0001', 'DevOps, Foundations & Tooling', 'Final convergence criterion achieved. Validation loss: 0.0012. Ready for deployment.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -796,154 +1075,226 @@
     </div>
   </section>
 
-  <!-- SECTION C: CASE FILES (Exact Match: Reference Image 3) -->
-  <section id="cases" class="py-20 hairline-b">
-    <div class="max-w-7xl px-4">
+  <!-- SECTION C: CASE FILES (PINNED HORIZONTAL DOSSIER TRACK) -->
+  <section id="cases" class="cases-pin-container">
+    <div class="cases-sticky-wrapper">
       
-      <!-- Top Left Tag & Counter -->
-      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem;">
-        <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
-          <div>CASE FILES</div>
-          <div>BSC-2026 / C</div>
-          <div style="margin-top: 0.35rem; color: #666666;">04 FILES · KEEP SCROLLING</div>
-        </div>
-      </div>
-
-      <!-- Section Title: Case files. -->
-      <div style="margin-bottom: 3.5rem;">
-        <h2 class="editorial-title" style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1;">
-          Case <em>files.</em>
-        </h2>
-      </div>
-
-      <!-- Manila Folder Cards Container: Side-by-Side Horizontal Scroll (Reference Image 3) -->
-      <div style="display: flex; gap: 1.75rem; overflow-x: auto; padding-bottom: 2rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+      <!-- Top Telemetry & Section Title -->
+      <div class="max-w-7xl px-4" style="width: 100%; margin: 0 auto;">
         
-        <!-- Folder 001: Demon Cinema -->
-        <div class="manila-card" onclick="openCaseDrawer('demon-cinema')">
-          <div class="manila-top-tab">
-            <span>CASE NO. 001</span>
-          </div>
-
-          <div class="manila-peeking-sheet font-mono">
-            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
-            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-001</span>
-          </div>
-
-          <div class="manila-card-body">
-            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
-              DEPLOYED
-            </span>
-
-            <div>
-              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
-                Demon Cinema
-              </h3>
-              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
-                A movie-ticket booking app for an anime-thematic cinema franchise with 60-second express checkout and interactive seat matrix.
-              </p>
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.25rem;">
+          <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
+            <div>CASE FILES</div>
+            <div>BSC-2026 / C</div>
+            <div id="casesProgressText" style="margin-top: 0.35rem; color: #D93829; font-weight: 700; letter-spacing: 0.08em;">
+              ACTIVE: 01 / 04 · DEMON CINEMA
             </div>
+          </div>
 
-            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
-              Figma · Design Systems · Interactive Prototyping · WCAG AA
+          <!-- Telemetry progress tracker -->
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.35rem;">
+            <div class="font-mono" style="font-size: 0.65rem; color: #666666; letter-spacing: 0.1em; text-transform: uppercase;">
+              HORIZONTAL TELEMETRY
+            </div>
+            <div style="width: 140px; height: 3px; background: rgba(17,17,17,0.15); border-radius: 2px; overflow: hidden; position: relative;">
+              <div id="casesProgressBar" style="width: 25%; height: 100%; background: #D93829; transition: width 0.15s ease;"></div>
+            </div>
+            <div class="font-mono" style="font-size: 0.62rem; color: #888888;">
+              [SCROLL MOUSE DOWN TO ADVANCE]
             </div>
           </div>
         </div>
 
-        <!-- Folder 002: PostMint AI (with Fastener Dot) -->
-        <div class="manila-card" onclick="openCaseDrawer('postmint-ai')">
-          <div class="manila-top-tab">
-            <span class="manila-fastener-dot"></span>
-            <span>CASE NO. 002</span>
-          </div>
-
-          <div class="manila-peeking-sheet font-mono">
-            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
-            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-002</span>
-          </div>
-
-          <div class="manila-card-body">
-            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
-              SHIPPED
-            </span>
-
-            <div>
-              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
-                PostMint AI
-              </h3>
-              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
-                Multilingual AI poster maker and caption studio built for Indian SMBs in English, Hindi, and Odia.
-              </p>
-            </div>
-
-            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
-              React · Node.js · Express · MongoDB · Cloudinary · OpenAI API
-            </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.5rem;">
+          <h2 class="editorial-title" style="font-size: clamp(2.5rem, 6.5vw, 5rem); font-weight: 400; line-height: 1;">
+            Case <em>files.</em>
+          </h2>
+          <div class="font-mono" style="font-size: 0.72rem; color: #555555; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="display: inline-block; width: 6px; height: 6px; background: #D93829; border-radius: 50%;"></span>
+            <span>04 CLASSIFIED BRIEFS · RIGHT-TO-LEFT SCAN</span>
           </div>
         </div>
 
-        <!-- Folder 003: NALCO Smart CMS -->
-        <div class="manila-card" onclick="openCaseDrawer('nalco-cms')">
-          <div class="manila-top-tab">
-            <span>CASE NO. 003</span>
-          </div>
+      </div>
 
-          <div class="manila-peeking-sheet font-mono">
-            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
-            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-003</span>
-          </div>
-
-          <div class="manila-card-body">
-            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
-              DELIVERED
-            </span>
-
-            <div>
-              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
-                NALCO Smart CMS
-              </h3>
-              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
-                Mission-critical enterprise grievance telemetry and incident routing dashboard for National Aluminium Company Limited.
-              </p>
+      <!-- Manila Folder Cards Container: Side-by-Side Horizontal Scroll -->
+      <div class="cases-track-viewport">
+        <div id="cases-horizontal-track" class="cases-horizontal-track">
+          
+          <!-- Folder 001: Demon Cinema -->
+          <div class="manila-card is-active" data-case-index="0" onclick="openCaseDrawer('demon-cinema')">
+            <div class="manila-top-tab">
+              <span>CASE NO. 001</span>
             </div>
 
-            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
-              MERN Stack · REST APIs · RBAC · MongoDB Atlas · Vercel
+            <div class="manila-peeking-sheet font-mono">
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL // UNSEALED</span>
+                <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-001</span>
+              </div>
+              <div style="font-size: 0.6rem; color: #777; border-top: 1px dashed rgba(17,17,17,0.18); padding-top: 0.35rem; display: flex; justify-content: space-between; width: 100%;">
+                <span>ARCHIVAL RECORD • SYSTEM SCHEMATIC</span>
+                <span style="color:#D93829; font-weight: bold;">[PULL TO INSPECT]</span>
+              </div>
+            </div>
+
+            <div class="manila-card-body">
+              <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+                DEPLOYED
+              </span>
+
+              <div>
+                <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                  Demon Cinema
+                </h3>
+                <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                  A movie-ticket booking app for an anime-thematic cinema franchise with 60-second express checkout and interactive seat matrix.
+                </p>
+              </div>
+
+              <div>
+                <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+                  Figma · Design Systems · Interactive Prototyping · WCAG AA
+                </div>
+                <div class="manila-inspect-cue">
+                  <span>CLASSIFIED RECORD</span>
+                  <span style="color: #D93829;">INSPECT CASE ↗</span>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Folder 002: PostMint AI -->
+          <div class="manila-card" data-case-index="1" onclick="openCaseDrawer('postmint-ai')">
+            <div class="manila-top-tab">
+              <span class="manila-fastener-dot"></span>
+              <span>CASE NO. 002</span>
+            </div>
+
+            <div class="manila-peeking-sheet font-mono">
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL // UNSEALED</span>
+                <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-002</span>
+              </div>
+              <div style="font-size: 0.6rem; color: #777; border-top: 1px dashed rgba(17,17,17,0.18); padding-top: 0.35rem; display: flex; justify-content: space-between; width: 100%;">
+                <span>ARCHIVAL RECORD • SYSTEM SCHEMATIC</span>
+                <span style="color:#D93829; font-weight: bold;">[PULL TO INSPECT]</span>
+              </div>
+            </div>
+
+            <div class="manila-card-body">
+              <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+                SHIPPED
+              </span>
+
+              <div>
+                <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                  PostMint AI
+                </h3>
+                <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                  Multilingual AI poster maker and caption studio built for Indian SMBs in English, Hindi, and Odia.
+                </p>
+              </div>
+
+              <div>
+                <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+                  React · Node.js · Express · MongoDB · Cloudinary · OpenAI API
+                </div>
+                <div class="manila-inspect-cue">
+                  <span>CLASSIFIED RECORD</span>
+                  <span style="color: #D93829;">INSPECT CASE ↗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Folder 003: NALCO Smart CMS -->
+          <div class="manila-card" data-case-index="2" onclick="openCaseDrawer('nalco-cms')">
+            <div class="manila-top-tab">
+              <span>CASE NO. 003</span>
+            </div>
+
+            <div class="manila-peeking-sheet font-mono">
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL // UNSEALED</span>
+                <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-003</span>
+              </div>
+              <div style="font-size: 0.6rem; color: #777; border-top: 1px dashed rgba(17,17,17,0.18); padding-top: 0.35rem; display: flex; justify-content: space-between; width: 100%;">
+                <span>ARCHIVAL RECORD • SYSTEM SCHEMATIC</span>
+                <span style="color:#D93829; font-weight: bold;">[PULL TO INSPECT]</span>
+              </div>
+            </div>
+
+            <div class="manila-card-body">
+              <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+                DELIVERED
+              </span>
+
+              <div>
+                <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                  NALCO Smart CMS
+                </h3>
+                <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                  Mission-critical enterprise grievance telemetry and incident routing dashboard for National Aluminium Company Limited.
+                </p>
+              </div>
+
+              <div>
+                <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+                  MERN Stack · REST APIs · RBAC · MongoDB Atlas · Vercel
+                </div>
+                <div class="manila-inspect-cue">
+                  <span>CLASSIFIED RECORD</span>
+                  <span style="color: #D93829;">INSPECT CASE ↗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Folder 004: Ekatraa Marketplace -->
+          <div class="manila-card" data-case-index="3" onclick="openCaseDrawer('ekatraa-marketplace')">
+            <div class="manila-top-tab">
+              <span>CASE NO. 004</span>
+            </div>
+
+            <div class="manila-peeking-sheet font-mono">
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL // UNSEALED</span>
+                <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-004</span>
+              </div>
+              <div style="font-size: 0.6rem; color: #777; border-top: 1px dashed rgba(17,17,17,0.18); padding-top: 0.35rem; display: flex; justify-content: space-between; width: 100%;">
+                <span>ARCHIVAL RECORD • SYSTEM SCHEMATIC</span>
+                <span style="color:#D93829; font-weight: bold;">[PULL TO INSPECT]</span>
+              </div>
+            </div>
+
+            <div class="manila-card-body">
+              <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+                ARCHIVED
+              </span>
+
+              <div>
+                <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                  Ekatraa Marketplace
+                </h3>
+                <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                  Event-vendor discovery architecture structuring matrimonial and regional cultural bookings.
+                </p>
+              </div>
+
+              <div>
+                <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+                  Information Architecture · User Flows · Motion Concepts · HTML/JS
+                </div>
+                <div class="manila-inspect-cue">
+                  <span>CLASSIFIED RECORD</span>
+                  <span style="color: #D93829;">INSPECT CASE ↗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <!-- Folder 004: Ekatraa Marketplace -->
-        <div class="manila-card" onclick="openCaseDrawer('ekatraa-marketplace')">
-          <div class="manila-top-tab">
-            <span>CASE NO. 004</span>
-          </div>
-
-          <div class="manila-peeking-sheet font-mono">
-            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
-            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-004</span>
-          </div>
-
-          <div class="manila-card-body">
-            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
-              ARCHIVED
-            </span>
-
-            <div>
-              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
-                Ekatraa Marketplace
-              </h3>
-              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
-                Event-vendor discovery architecture structuring matrimonial and regional cultural bookings.
-              </p>
-            </div>
-
-            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
-              Information Architecture · User Flows · Motion Concepts · HTML/JS
-            </div>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -969,14 +1320,12 @@
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
         
-        <!-- Experience -->
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 0.5rem;">
             <span class="meta-tag" style="font-weight: 700; color: #111111;">01 // OPERATIONAL EXPERIENCE</span>
             <span class="font-mono" style="color: #D93829; font-weight: 700; font-size: 0.75rem;">[03 ENTRIES]</span>
           </div>
 
-          <!-- Role 1 -->
           <div style="padding: 1.5rem; background: #DFDAD1; border: 1px solid var(--color-paper-border);">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 0.75rem;" class="font-mono">
               <span style="font-size: 0.75rem; font-weight: 700; color: #D93829;">MAY 2025 – SEPT 2025</span>
@@ -990,7 +1339,6 @@
             </ul>
           </div>
 
-          <!-- Role 2 -->
           <div style="padding: 1.5rem; background: #DFDAD1; border: 1px solid var(--color-paper-border);">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 0.75rem;" class="font-mono">
               <span style="font-size: 0.75rem; font-weight: 700; color: #D93829;">ONGOING ENGAGEMENT</span>
@@ -998,7 +1346,7 @@
             </div>
             <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;">Full Stack Intern — National Aluminium Company Limited (NALCO)</h3>
             <div class="font-mono" style="font-size: 0.75rem; color: #666666; margin-bottom: 1rem;">Anugul &amp; Bhubaneswar, Odisha</div>
-            <ul style="list-style: none; font-size: 0.88rem; color: #333333; line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+            <ul style="list-style: none; font-size: 0.88rem; color: #333333; line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
               <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Designed and deployed the end-to-end MERN complaint management system live for departmental enterprise staff.</span></li>
               <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Constructed REST API endpoints for grievance submission, file attachment handling, and role-based incident status dispatching.</span></li>
             </ul>
@@ -1010,7 +1358,6 @@
           </div>
         </div>
 
-        <!-- Education & Certifications -->
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 0.5rem;">
             <span class="meta-tag" style="font-weight: 700; color: #111111;">02 // ACADEMIC RECORD &amp; ACCREDITATIONS</span>
@@ -1307,7 +1654,6 @@
   <div id="caseDrawerModal" onclick="handleDrawerBackdrop(event)">
     <div style="width: 100%; max-width: 680px; height: 100%; background: #E8E5DF; border-left: 1px solid #111111; box-shadow: -10px 0 30px rgba(0,0,0,0.25); overflow-y: auto; display: flex; flex-direction: column;">
       
-      <!-- Drawer Header -->
       <div style="position: sticky; top: 0; z-index: 20; background: #DFDAD1; border-bottom: 1px solid var(--color-paper-border); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
         <div style="display: flex; align-items: center; gap: 0.75rem;">
           <span id="drawerStatusStamp" class="rubber-stamp">DEPLOYED</span>
@@ -1321,10 +1667,8 @@
         </button>
       </div>
 
-      <!-- Drawer Body -->
       <div style="padding: 2rem; display: flex; flex-direction: column; gap: 2rem; flex: 1;">
         
-        <!-- Title & Category -->
         <div style="border-bottom: 1px solid var(--color-paper-border); padding-bottom: 1.5rem;">
           <div id="drawerCategory" class="meta-tag" style="color: #D93829; font-weight: 700; margin-bottom: 0.25rem;">
             Category
@@ -1339,23 +1683,18 @@
           </div>
         </div>
 
-        <!-- Metrics Grid -->
         <div id="drawerMetricsGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--color-paper-border); background: #DFDAD1; text-align: center; padding: 0.75rem 0;" class="font-mono">
-          <!-- Dynamically populated -->
         </div>
 
-        <!-- Schematic Wireframe Mockup Container -->
         <div style="border: 1px solid rgba(17,17,17,0.3); background: #111111; padding: 1.25rem;">
           <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #333333; padding-bottom: 0.5rem; margin-bottom: 0.75rem; font-size: 0.65rem; color: #888888;" class="font-mono">
             <span>SCHEMATIC VISUAL // ARTIFACT PREVIEW</span>
             <span style="color: #D93829;">OPTICAL TELEMETRY</span>
           </div>
           <div id="drawerMockupVisual" style="width: 100%;">
-            <!-- SVG inserted by JS -->
           </div>
         </div>
 
-        <!-- Problem Brief -->
         <div>
           <div class="meta-tag" style="color: #111111; font-weight: 700; margin-bottom: 0.5rem;">
             01 // PROBLEM STATEMENT &amp; MISSION CONTEXT
@@ -1365,7 +1704,6 @@
           </p>
         </div>
 
-        <!-- Solution & Architecture -->
         <div>
           <div class="meta-tag" style="color: #111111; font-weight: 700; margin-bottom: 0.5rem;">
             02 // ARCHITECTURE &amp; INTERFACE SOLUTION
@@ -1374,23 +1712,18 @@
             Solution description...
           </p>
           <ul id="drawerArchitectureList" class="font-mono" style="list-style: none; border-left: 2px solid #111111; padding-left: 1rem; font-size: 0.75rem; color: #444444; display: flex; flex-direction: column; gap: 0.5rem;">
-            <!-- Bullets inserted by JS -->
           </ul>
         </div>
 
-        <!-- Tech Stack -->
         <div>
           <div class="meta-tag" style="color: #111111; font-weight: 700; margin-bottom: 0.5rem;">
             03 // TECHNICAL TELEMETRY STACK
           </div>
           <div id="drawerTechStack" style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
-            <!-- Badges inserted by JS -->
           </div>
         </div>
 
-        <!-- Action Links -->
         <div id="drawerActionLinks" style="border-top: 1px solid var(--color-paper-border); padding-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem;">
-          <!-- Links inserted by JS -->
         </div>
 
       </div>
@@ -1398,8 +1731,87 @@
     </div>
   </div>
 
-  <!-- SCRIPT LOGIC -->
+  <!-- SCRIPT LOGIC: AUDIO, REDACTION WIPE, CLOCK, AND VERCEL CURSOR -->
   <script>
+    // ==========================================
+    // VERCEL-STYLE CUSTOM SPRING/LERP MOUSE CURSOR
+    // ==========================================
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
+    let isCursorVisible = false;
+
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      if (!isCursorVisible) {
+        isCursorVisible = true;
+        if (dot) dot.style.opacity = '1';
+        if (ring) ring.style.opacity = '1';
+        ringX = mouseX;
+        ringY = mouseY;
+      }
+
+      if (dot) {
+        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      }
+    });
+
+    function animateCursorLoop() {
+      if (isCursorVisible && ring) {
+        // Smooth lerp interpolation for trailing spring physics
+        ringX += (mouseX - ringX) * 0.16;
+        ringY += (mouseY - ringY) * 0.16;
+        ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+      }
+      requestAnimationFrame(animateCursorLoop);
+    }
+    requestAnimationFrame(animateCursorLoop);
+
+    document.addEventListener('mouseleave', () => {
+      isCursorVisible = false;
+      if (dot) dot.style.opacity = '0';
+      if (ring) ring.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      isCursorVisible = true;
+      if (dot) dot.style.opacity = '1';
+      if (ring) ring.style.opacity = '1';
+    });
+
+    document.addEventListener('mousedown', () => {
+      document.body.classList.add('cursor-active');
+    });
+
+    document.addEventListener('mouseup', () => {
+      document.body.classList.remove('cursor-active');
+    });
+
+    function initCursorHoverListeners() {
+      // General clickables (links, buttons, folders)
+      const interactives = document.querySelectorAll('a, button, input, .manila-card');
+      interactives.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+
+      // Redaction bar hover target
+      const redactBars = document.querySelectorAll('.redaction-bar');
+      redactBars.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          document.body.classList.add('cursor-redact');
+          playBlip(980, 0.04);
+        });
+        el.addEventListener('mouseleave', () => {
+          document.body.classList.remove('cursor-redact');
+        });
+      });
+    }
+
     // Audio Synthesizer via Web Audio API
     let audioCtx = null;
     let audioEnabled = false;
@@ -1535,7 +1947,7 @@
       }
     }
 
-    // Redaction Bars Toggle
+    // Toggle Redaction: Right-swipe reveal/hide
     function toggleRedact(el) {
       el.classList.toggle('revealed');
       playBlip(980, 0.05);
@@ -1567,8 +1979,8 @@
         const row = document.getElementById('emailRow');
         btn.innerText = 'COPIED TO CLIPBOARD ✓';
         btn.style.background = '#111111';
-        btn.style.color = '#FFF385';
-        row.style.backgroundColor = '#FFF385';
+        btn.style.color = '#FAF9F6';
+        row.style.backgroundColor = 'rgba(17,17,17,0.06)';
         setTimeout(() => {
           btn.innerText = 'CLICK TO COPY';
           btn.style.background = '#FAF9F6';
@@ -1750,6 +2162,132 @@
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeCaseDrawer();
     });
+
+    // ========================================================
+    // PINNED HORIZONTAL DOSSIER SCROLL & OPENING ANIMATION
+    // ========================================================
+    const casesPinContainer = document.getElementById('cases');
+    const casesTrack = document.getElementById('cases-horizontal-track');
+    const casesProgressBar = document.getElementById('casesProgressBar');
+    const casesProgressText = document.getElementById('casesProgressText');
+    const manilaCards = document.querySelectorAll('#cases-horizontal-track .manila-card');
+
+    const CASE_TITLES = [
+      '01 / 04 · DEMON CINEMA',
+      '02 / 04 · POSTMINT AI',
+      '03 / 04 · NALCO SMART CMS',
+      '04 / 04 · EKATRAA MARKETPLACE'
+    ];
+
+    let lastActiveCardIdx = -1;
+
+    function handleCasesPinnedScroll() {
+      if (!casesPinContainer || !casesTrack) return;
+
+      // On mobile viewports under 769px, track scroll in mobile viewport
+      if (window.innerWidth <= 768) {
+        const viewport = casesPinContainer.querySelector('.cases-track-viewport');
+        if (viewport) {
+          const scrollLeft = viewport.scrollLeft;
+          const cardWidth = manilaCards[0] ? manilaCards[0].offsetWidth : 300;
+          const activeIdx = Math.min(manilaCards.length - 1, Math.max(0, Math.round(scrollLeft / (cardWidth + 20))));
+          manilaCards.forEach((c, i) => {
+            if (i === activeIdx) c.classList.add('is-active');
+            else c.classList.remove('is-active');
+          });
+          if (casesProgressBar) {
+            casesProgressBar.style.width = ((activeIdx + 1) / manilaCards.length * 100) + '%';
+          }
+          if (casesProgressText && CASE_TITLES[activeIdx]) {
+            casesProgressText.innerText = 'ACTIVE: ' + CASE_TITLES[activeIdx];
+          }
+        }
+        return;
+      }
+
+      const rect = casesPinContainer.getBoundingClientRect();
+      const containerHeight = casesPinContainer.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollableDistance = containerHeight - windowHeight;
+
+      if (scrollableDistance <= 0) return;
+
+      // Calculate progress between 0 and 1
+      let progress = -rect.top / scrollableDistance;
+      progress = Math.max(0, Math.min(1, progress));
+
+      // Calculate total horizontal travel
+      const maxScrollDistance = casesTrack.scrollWidth - window.innerWidth + 120;
+      const currentTranslateX = progress * Math.max(0, maxScrollDistance);
+
+      casesTrack.style.transform = `translate3d(${-currentTranslateX}px, 0, 0)`;
+
+      // Update progress bar
+      if (casesProgressBar) {
+        const pct = Math.min(100, Math.max(15, Math.round(progress * 100)));
+        casesProgressBar.style.width = pct + '%';
+      }
+
+      // Determine active card based on viewport focus
+      const screenMid = window.innerWidth * 0.45;
+      let closestIdx = 0;
+      let minDistance = Infinity;
+
+      manilaCards.forEach((card, idx) => {
+        const cRect = card.getBoundingClientRect();
+        const cardCenter = cRect.left + cRect.width / 2;
+        const dist = Math.abs(cardCenter - screenMid);
+
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestIdx = idx;
+        }
+
+        // Trigger opening animation when card enters viewable horizontal threshold
+        if (cRect.left < window.innerWidth * 0.88 && cRect.right > window.innerWidth * 0.12) {
+          card.classList.add('is-active');
+        } else {
+          card.classList.remove('is-active');
+        }
+      });
+
+      if (closestIdx !== lastActiveCardIdx) {
+        lastActiveCardIdx = closestIdx;
+        if (casesProgressText && CASE_TITLES[closestIdx]) {
+          casesProgressText.innerText = 'ACTIVE: ' + CASE_TITLES[closestIdx];
+        }
+        if (typeof playClick === 'function' && rect.top <= 50 && rect.bottom >= windowHeight - 50) {
+          playClick();
+        }
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      requestAnimationFrame(handleCasesPinnedScroll);
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      requestAnimationFrame(handleCasesPinnedScroll);
+    });
+
+    const casesViewport = document.querySelector('.cases-track-viewport');
+    if (casesViewport) {
+      casesViewport.addEventListener('scroll', () => {
+        if (window.innerWidth <= 768) {
+          requestAnimationFrame(handleCasesPinnedScroll);
+        }
+      }, { passive: true });
+    }
+
+    // Initialize cursor hover triggers
+    window.addEventListener('DOMContentLoaded', () => {
+      initCursorHoverListeners();
+      handleCasesPinnedScroll();
+    });
+    setTimeout(() => {
+      initCursorHoverListeners();
+      handleCasesPinnedScroll();
+    }, 150);
   </script>
 </body>
 </html>
