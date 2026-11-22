@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhabani Shankar Chaudhary // CLASSIFIED DOSSIER [BSC-2026]</title>
+  <meta name="description" content="Bhabani Shankar Chaudhary — UI/UX Designer &amp; Creative Full-Stack Developer. Classified Intelligence Dossier &amp; Machine Learning Scanner. Based in Bhubaneswar, India.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📁</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-paper: #E8E5DF;
+      --color-paper-light: #F4F2EC;
+      --color-paper-card: #DFDAD1;
+      --color-paper-border: rgba(17, 17, 17, 0.18);
+      --color-ink: #111111;
+      --color-ink-muted: #555555;
+      --color-crimson: #D93829;
+      --color-manila-body: #D4C2A3;
+      --color-manila-border: #B8A688;
+      --color-manila-tab: #D4C2A3;
+      --color-white-sheet: #FAF9F6;
+      --font-serif: "Instrument Serif", "Playfair Display", Georgia, serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --font-typewriter: "Courier Prime", "Courier New", monospace;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-paper);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      background-image: 
+        linear-gradient(to right, rgba(17, 17, 17, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(17, 17, 17, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    ::selection {
+      background-color: #FFF385;
+      color: #111111;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Reference Editorial Serif Typography */
+    .editorial-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(4.5rem, 14vw, 11.5rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      color: var(--color-ink);
+    }
+
+    .editorial-hero-title em,
+    .editorial-hero-title i {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .editorial-title {
+      font-family: var(--font-serif);
+      letter-spacing: -0.02em;
+    }
+
+    .editorial-title em,
+    .editorial-title i {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    .font-typewriter {
+      font-family: var(--font-typewriter);
+    }
+
+    /* Authentic Rubber Stamp */
+    .rubber-stamp {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      color: var(--color-crimson);
+      border: 1.8px solid var(--color-crimson);
+      border-radius: 2px;
+      background-color: rgba(217, 56, 41, 0.04);
+      transform: rotate(-4deg);
+      user-select: none;
+      box-shadow: 0 0 0 1px rgba(217, 56, 41, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .rubber-stamp:hover {
+      transform: rotate(0deg) scale(1.04);
+    }
+
+    /* Paperclip Photo Container (Reference Image 2) */
+    .photo-paper-frame {
+      position: relative;
+      background: #FFFFFF;
+      padding: 10px 10px 22px 10px;
+      box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.08);
+      border-radius: 2px;
+      transform: rotate(-1.5deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .photo-paper-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.18), 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .paperclip-svg {
+      position: absolute;
+      top: -14px;
+      left: 20px;
+      width: 24px;
+      height: 54px;
+      z-index: 20;
+      filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.25));
+      pointer-events: none;
+    }
+
+    .photo-inner-canvas {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #E8E5DF;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-inner-canvas img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%; /* Centers headshot with balanced headroom */
+      filter: grayscale(100%) contrast(112%) brightness(102%);
+      display: block;
+      transition: filter 0.3s ease;
+    }
+
+    /* Manila Dossier Folder Cards (Reference Image 3) */
+    .manila-card {
+      position: relative;
+      flex: 0 0 340px;
+      width: 340px;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .manila-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .manila-top-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-manila-body);
+      border-top: 1px solid var(--color-manila-border);
+      border-left: 1px solid var(--color-manila-border);
+      border-right: 1px solid var(--color-manila-border);
+      padding: 0.3rem 1.25rem 0.25rem 1.25rem;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #3F392E;
+      position: relative;
+      bottom: -1px;
+      z-index: 1;
+    }
+
+    .manila-fastener-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #111111;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .manila-peeking-sheet {
+      background: var(--color-white-sheet);
+      border: 1px solid var(--color-manila-border);
+      border-bottom: none;
+      padding: 0.65rem 1rem 0.75rem 1rem;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .manila-card-body {
+      background: var(--color-manila-body);
+      border: 1px solid var(--color-manila-border);
+      padding: 1.5rem;
+      position: relative;
+      z-index: 3;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+      min-height: 185px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Redaction Bar */
+    .redaction-bar {
+      display: inline;
+      position: relative;
+      background-color: var(--color-ink);
+      color: transparent;
+      user-select: none;
+      cursor: pointer;
+      padding: 0.08em 0.35em;
+      margin: 0 0.15em;
+      border-radius: 1px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .redaction-bar.revealed,
+    .redaction-bar:hover,
+    .redaction-bar:focus {
+      background-color: #FFF385 !important;
+      color: var(--color-ink) !important;
+      user-select: text;
+      box-shadow: 0 0 0 2px #E6D24A;
+    }
+
+    /* Tactile Buttons */
+    .btn-tactile {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: var(--color-ink);
+      color: #FAF9F6;
+      border: 1px solid var(--color-ink);
+      padding: 0.6rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+      box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .btn-tactile:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15);
+      background-color: #222222;
+    }
+
+    .btn-tactile-outline {
+      background-color: transparent;
+      color: var(--color-ink);
+      border: 1px solid var(--color-ink);
+      box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-tactile-outline:hover {
+      background-color: rgba(17, 17, 17, 0.05);
+    }
+
+    /* Clean metadata text */
+    .meta-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #E8E5DF;
+      transition: opacity 0.5s ease;
+    }
+
+    #preloader.faded {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Case Drawer Modal */
+    #caseDrawerModal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background-color: rgba(17, 17, 17, 0.65);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: flex-end;
+    }
+
+    #caseDrawerModal.open {
+      display: flex;
+    }
+
+    /* Hand-drawn Signature */
+    .signature-path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawSig 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes drawSig {
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #DDD8CD;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #A8A090;
+    }
+
+    /* Layout Utility Containers */
+    .max-w-7xl { max-width: 82rem; margin-left: auto; margin-right: auto; }
+    .px-4 { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .px-6 { padding-left: 1.75rem; padding-right: 1.75rem; }
+    .py-16 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    .py-20 { padding-top: 5.5rem; padding-bottom: 5.5rem; }
+    .hairline-b { border-bottom: 1px solid var(--color-paper-border); }
+    .hairline-t { border-top: 1px solid var(--color-paper-border); }
+  </style>
+</head>
+<body>
+
+  <!-- BOOT PRELOADER OVERLAY -->
+  <div id="preloader" onclick="skipPreloader()">
+    <div style="position: relative; z-index: 10; width: 90%; max-width: 420px; padding: 2rem; border: 1px solid rgba(17,17,17,0.3); background: #FAF9F6; box-shadow: 4px 4px 0px rgba(17,17,17,0.15);">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.2); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="width: 8px; height: 8px; background-color: #D93829; border-radius: 50%; display: inline-block;"></span>
+          <span class="font-mono" style="font-size: 0.8rem; font-weight: bold; letter-spacing: 0.12em;">BHABANI//SCAN</span>
+        </div>
+        <span class="font-mono" style="font-size: 0.65rem; color: #666666; letter-spacing: 0.08em;">SEC-LEVEL // 02</span>
+      </div>
+
+      <div style="text-align: center; margin: 1.5rem 0;">
+        <div class="font-mono" style="font-size: 4.5rem; font-weight: 300; line-height: 1; color: #111111;">
+          <span id="loadCounter">000</span><span style="font-size: 1.5rem; color: #D93829;">%</span>
+        </div>
+        <div class="font-mono" style="font-size: 0.72rem; color: #D93829; font-weight: bold; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.5rem;">
+          Scanning visitor clearance
+        </div>
+      </div>
+
+      <div style="width: 100%; height: 6px; border: 1px solid rgba(17,17,17,0.3); padding: 1px; background: #E8E5DF; margin-bottom: 1rem;">
+        <div id="loadBar" style="width: 0%; height: 100%; background: #111111; transition: width 0.05s ease;"></div>
+      </div>
+
+      <div id="loadStatus" class="font-mono" style="font-size: 0.68rem; color: #666666; height: 1.25rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+        &gt; INITIALIZING CLASSIFIED DOSSIER PROTOCOL...
+      </div>
+
+      <div style="margin-top: 1.5rem; padding-top: 0.75rem; border-top: 1px dashed rgba(17,17,17,0.2); display: flex; justify-content: space-between; font-size: 0.65rem; color: #888888;" class="font-mono">
+        <span>FILE: BSC-2026</span>
+        <span style="text-decoration: underline; cursor: pointer;">[Click anywhere to skip]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY TOP TELEMETRY HEADER (Exact Match: Reference Image 1) -->
+  <header style="position: sticky; top: 0; z-index: 100; width: 100%; background-color: rgba(232, 229, 223, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-paper-border);">
+    <div class="max-w-7xl px-4" style="height: 3.25rem; display: flex; align-items: center; justify-content: space-between;">
+      
+      <!-- Brand & File Telemetry -->
+      <div style="display: flex; align-items: center; gap: 2rem;">
+        <a href="#top" onclick="playClick()" class="font-mono" style="font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em; color: #111111;">
+          BHABANI//SCAN
+        </a>
+
+        <div class="font-mono" style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.7rem; color: #555555; letter-spacing: 0.1em;">
+          <span>FILE BSC-2026</span>
+          <span style="color: #999999;">·</span>
+          <span>BHUBANESWAR</span>
+          <span id="liveClock" style="color: #111111; font-weight: 600;">20:53 IST</span>
+        </div>
+      </div>
+
+      <!-- Navigation Anchors -->
+      <nav style="display: flex; align-items: center; gap: 1.75rem;" class="font-mono">
+        <a href="#subject" onclick="playClick()" style="font-size: 0.72rem; letter-spacing: 0.15em; color: #444444; text-transform: uppercase;">SUBJECT</a>
+        <a href="#training" onclick="playClick()" style="font-size: 0.72rem; letter-spacing: 0.15em; color: #444444; text-transform: uppercase;">SKILLS</a>
+        <a href="#cases" onclick="playClick()" style="font-size: 0.72rem; letter-spacing: 0.15em; color: #444444; text-transform: uppercase;">CASES</a>
+        <a href="#record" onclick="playClick()" style="font-size: 0.72rem; letter-spacing: 0.15em; color: #444444; text-transform: uppercase;">RECORD</a>
+        <a href="#contact" onclick="playClick()" style="font-size: 0.72rem; letter-spacing: 0.15em; color: #444444; text-transform: uppercase;">CONTACT</a>
+        <button id="audioToggleBtn" onclick="toggleAudio()" style="font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; padding: 0.2rem 0.45rem; border: 1px solid rgba(17,17,17,0.3); background: transparent; cursor: pointer; display: flex; align-items: center; gap: 0.35rem;">
+          <span id="audioIndicator" style="width: 5px; height: 5px; border-radius: 50%; background: #888888; display: inline-block;"></span>
+          <span id="audioStatusText">AUDIO</span>
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- HERO SECTION (Exact Match: Reference Image 1) -->
+  <section id="top" style="padding: 3rem 0 5rem 0;" class="hairline-b">
+    <div class="max-w-7xl px-4">
+      
+      <!-- Right-Aligned Meta Details (Status, Work Permit, Location) -->
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 2rem;">
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; text-align: right; max-width: 260px;" class="font-mono">
+          <div>
+            <div class="meta-tag" style="margin-bottom: 0.15rem;">STATUS</div>
+            <div style="font-size: 0.88rem; color: #111111;">Available immediately</div>
+          </div>
+          <div>
+            <div class="meta-tag" style="margin-bottom: 0.15rem;">WORK PERMIT</div>
+            <div style="font-size: 0.88rem; color: #111111;">Citizen of India · Cleared</div>
+          </div>
+          <div>
+            <div class="meta-tag" style="margin-bottom: 0.15rem;">LOCATION</div>
+            <div style="font-size: 0.88rem; color: #111111;">Bhubaneswar, India</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Massive Editorial Display Heading -->
+      <div style="margin-top: 1rem; margin-bottom: 3.5rem;">
+        <h1 class="editorial-hero-title">
+          Bhabani Shankar<br>
+          <em>Chaudhary.</em>
+        </h1>
+      </div>
+
+      <!-- Sub-Bar: Role & Coordinates -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid var(--color-paper-border);" class="font-mono">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: #111111;">
+            UI/UX DESIGNER &amp; CREATIVE FULL-STACK DEVELOPER
+          </span>
+          <span style="color: #999999;">—</span>
+          <span style="font-size: 0.72rem; color: #666666;">
+            AI INTERACTION &amp; APPLIED ML SYSTEMS
+          </span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1.5rem; font-size: 0.75rem;">
+          <span style="color: #D93829; font-weight: 600;">20.2961° N, 85.8245° E</span>
+          <a href="#subject" onclick="playClick()" class="btn-tactile">
+            <span>Open the file ↓</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION A: THE SUBJECT (Exact Match: Reference Image 2) -->
+  <section id="subject" class="py-20 hairline-b">
+    <div class="max-w-7xl px-4">
+      
+      <!-- Top Left Tag: SUBJECT FILE / BSC-2026 / A -->
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem;">
+        <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
+          <div>SUBJECT FILE</div>
+          <div>BSC-2026 / A</div>
+        </div>
+      </div>
+
+      <!-- Large Editorial Title: The subject. -->
+      <div style="margin-bottom: 3.5rem;">
+        <h2 class="editorial-title" style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1;">
+          The <em>subject.</em>
+        </h2>
+      </div>
+
+      <!-- 2-Column Split: Clipped Physical Photo (Left) + Dossier Typewriter Card (Right) -->
+      <div style="display: grid; grid-template-columns: 320px 1fr; gap: 3.5rem; align-items: start;" id="subjectGrid">
+        
+        <!-- LEFT: Realistic Paperclip Photo (Exact Match Image 2) -->
+        <div>
+          <div class="photo-paper-frame">
+            <!-- Silver Paperclip Wire SVG attached at top-left -->
+            <svg class="paperclip-svg" viewBox="0 0 24 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Outer wire loop -->
+              <path d="M 6 18 V 40 C 6 46 9.5 50 14.5 50 C 19.5 50 22 46 22 40 V 12 C 22 5.5 17.5 2 12 2 C 6.5 2 2 5.5 2 12 V 38" stroke="#555555" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M 6 18 V 40 C 6 46 9.5 50 14.5 50 C 19.5 50 22 46 22 40 V 12 C 22 5.5 17.5 2 12 2 C 6.5 2 2 5.5 2 12 V 38" stroke="#D8D8D8" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+
+            <!-- Properly Framed Centered Headshot Photo -->
+            <div class="photo-inner-canvas">
+              <img src="assets/profile.jpg" alt="Bhabani Shankar Chaudhary" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; filter: grayscale(100%) contrast(110%) brightness(102%);">
+            </div>
+
+            <div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center;" class="font-mono">
+              <span style="font-size: 0.65rem; color: #555555; letter-spacing: 0.08em;">SUBJECT · BSC-2026</span>
+              <span style="font-size: 0.62rem; color: #D93829; font-weight: 700; letter-spacing: 0.1em;">● IDENTIFIED</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Typewriter Monospace Dossier Card (Exact Match Image 2) -->
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          
+          <div style="background: #DFDAD1; border: 1px solid rgba(17,17,17,0.18); padding: 2.25rem; border-radius: 2px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: relative;">
+            
+            <!-- Header Line with Black Brad Dot -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.85rem; margin-bottom: 1.75rem;" class="font-typewriter">
+              <span style="font-size: 0.75rem; letter-spacing: 0.14em; color: #444444;">
+                SUBJECT FILE · BSC-2026-000
+              </span>
+              <span style="width: 7px; height: 7px; background: #111111; border-radius: 50%; display: inline-block;"></span>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <span style="font-size: 0.75rem; letter-spacing: 0.14em; color: #444444;">
+                  CLEARANCE: VISITOR
+                </span>
+                <button onclick="revealAllRedactions()" class="font-mono" style="font-size: 0.62rem; background: none; border: none; text-decoration: underline; color: #666666; cursor: pointer;">
+                  [Declassify]
+                </button>
+              </div>
+            </div>
+
+            <!-- Body in Typewriter Font with Interactive Redaction Bars -->
+            <p class="font-typewriter" style="font-size: 1.05rem; line-height: 1.85; color: #111111;">
+              Computer science student (B.Tech 2027), based in Bhubaneswar, India, studying at 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">GITA Autonomous College</span>. 
+              Operating at the intersection of 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">human-computer interaction</span> 
+              and 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">applied machine learning</span>. 
+              Built PostMint AI: a multilingual generative marketing engine that synthesizes commercial posters and localized copy in English, Hindi, and Odia. Also builds full-stack web applications in Next.js and Node.js, and architected the enterprise incident triage system for 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">National Aluminium Company Limited (NALCO)</span>, 
+              accelerating routing velocity by 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">400% across departments</span>. 
+              Currently cleared for 
+              <span class="redaction-bar" tabindex="0" onclick="toggleRedact(this)" title="Click or hover to reveal">immediate deployment to product engineering teams</span>. 
+              Status: available immediately.
+            </p>
+
+            <div style="margin-top: 1.75rem; padding-top: 1rem; border-top: 1px dashed rgba(17,17,17,0.2); display: flex; justify-content: space-between; align-items: center;" class="font-mono">
+              <div style="font-size: 0.72rem; color: #666666; font-style: italic;">
+                Hover or tap a black bar to erase it.
+              </div>
+              <span style="font-size: 0.65rem; color: #888888; letter-spacing: 0.08em;">6 CLASSIFIED PHRASES</span>
+            </div>
+
+          </div>
+
+          <!-- 2-Column Key Facts Grid -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--color-paper-border); background: #DFDAD1;">
+            <div style="padding: 1.25rem; border-right: 1px solid var(--color-paper-border);">
+              <div style="margin-bottom: 0.85rem;">
+                <div class="meta-tag">Role Title</div>
+                <div class="font-mono" style="font-size: 0.82rem; font-weight: 600;">UI/UX Designer &amp; Creative Full-Stack Developer</div>
+              </div>
+              <div style="margin-bottom: 0.85rem;">
+                <div class="meta-tag">Based in</div>
+                <div class="font-mono" style="font-size: 0.82rem; font-weight: 600;">Bhubaneswar &amp; Janla, Odisha, India</div>
+              </div>
+              <div>
+                <div class="meta-tag">Work permit</div>
+                <div class="font-mono" style="font-size: 0.82rem; font-weight: 600;">Citizen of India · Unrestricted Global Remote</div>
+              </div>
+            </div>
+
+            <div style="padding: 1.25rem;">
+              <div style="margin-bottom: 0.85rem;">
+                <div class="meta-tag">Education</div>
+                <div class="font-mono" style="font-size: 0.82rem; font-weight: 600;">B.Tech CSE · GITA Autonomous College · CGPA 8.5</div>
+              </div>
+              <div style="margin-bottom: 0.85rem;">
+                <div class="meta-tag">Languages</div>
+                <div class="font-mono" style="font-size: 0.82rem; font-weight: 600;">English (Professional) · Hindi · Odia</div>
+              </div>
+              <div>
+                <div class="meta-tag">Core Toolkit</div>
+                <div class="font-mono" style="font-size: 0.82rem; font-weight: 600;">Figma · Next.js · TypeScript · React · Node · ML</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION B: TRAINING LOG -->
+  <section id="training" class="py-20 hairline-b">
+    <div class="max-w-7xl px-4">
+      
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem;">
+        <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
+          <div>TRAINING LOG</div>
+          <div>BSC-2026 / B</div>
+        </div>
+        <span class="font-mono" style="font-size: 0.72rem; color: #666666;">MODEL: GRADIENT-DESCENT-v5</span>
+      </div>
+
+      <div style="margin-bottom: 2.5rem;">
+        <h2 class="editorial-title" style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1;">
+          Training <em>log.</em>
+        </h2>
+      </div>
+
+      <!-- Sticky Telemetry Status Bar -->
+      <div id="stickyTelemetryBar" class="font-mono" style="position: sticky; top: 3.25rem; z-index: 50; padding: 0.85rem 1.25rem; background: #111111; color: #F4F2ED; border: 1px solid #111111; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="width: 7px; height: 7px; background: #D93829; border-radius: 50%; display: inline-block;"></span>
+          <span style="font-weight: 700;">LIVE TELEMETRY:</span>
+          <span id="telemetryStatusText" style="color: #E0DBCF; font-size: 0.75rem;">
+            Epoch 05/05 · Loss 0.0012 · Model Fully Converged [Ready for Deployment]
+          </span>
+        </div>
+        <div style="font-size: 0.7rem; color: #A8A295;">
+          <span id="telemetryNote">Hover over any epoch block to inspect loss &amp; telemetry status.</span>
+          <span style="color: #D93829; font-weight: 700; margin-left: 0.5rem;">5/5 EPOCHS</span>
+        </div>
+      </div>
+
+      <!-- 5 Sequential Epochs -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        
+        <!-- Epoch 01 -->
+        <div class="epoch-card" onmouseenter="updateTelemetry('01/05', '0.912', '0.0100', 'Machine Learning & Applied AI', 'High initial gradient descent. Baseline mathematical convergence established.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: #111111; color: #FFF; padding: 0.15rem 0.5rem; font-weight: 700; font-size: 0.72rem;">EPOCH 01/05</span>
+              <span style="font-weight: 700; font-size: 0.92rem;">Machine Learning &amp; Applied AI</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.8rem;">
+              <span>LOSS: <b style="color: #D93829;">0.912</b></span>
+              <span>LR: <b>0.0100</b></span>
+            </div>
+          </div>
+          <p style="font-size: 0.92rem; color: #444444; margin-bottom: 1rem;">
+            Foundational pattern extraction, automated feature pipelines, and applied intelligence models.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Python 3.12</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Scikit-Learn</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Pandas &amp; NumPy</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Data Preprocessing Pipelines</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Prompt Engineering</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">LLM Integration &amp; APIs</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Vector Embeddings</span>
+          </div>
+        </div>
+
+        <!-- Epoch 02 -->
+        <div class="epoch-card" onmouseenter="updateTelemetry('02/05', '0.431', '0.0050', 'Architecture, Backend & Security', 'Loss halved. Server throughput, relational constraints, and security boundary verified.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: #111111; color: #FFF; padding: 0.15rem 0.5rem; font-weight: 700; font-size: 0.72rem;">EPOCH 02/05</span>
+              <span style="font-weight: 700; font-size: 0.92rem;">Architecture, Backend &amp; Security</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.8rem;">
+              <span>LOSS: <b style="color: #D93829;">0.431</b></span>
+              <span>LR: <b>0.0050</b></span>
+            </div>
+          </div>
+          <p style="font-size: 0.92rem; color: #444444; margin-bottom: 1rem;">
+            Robust data flow, authenticated REST APIs, and resilient transactional persistence layers.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Node.js &amp; Express</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">RESTful API Architecture</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">MongoDB &amp; Mongoose</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">MySQL Relational Modeling</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">JWT Authentication &amp; RBAC</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">FastAPI (Python)</span>
+          </div>
+        </div>
+
+        <!-- Epoch 03 -->
+        <div class="epoch-card" onmouseenter="updateTelemetry('03/05', '0.187', '0.0025', 'Frontend Engineering & Creative UI', 'Sub-0.200 loss regime. Layout shifts minimized; interaction frames hitting 60fps.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: #111111; color: #FFF; padding: 0.15rem 0.5rem; font-weight: 700; font-size: 0.72rem;">EPOCH 03/05</span>
+              <span style="font-weight: 700; font-size: 0.92rem;">Frontend Engineering &amp; Creative UI</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.8rem;">
+              <span>LOSS: <b style="color: #D93829;">0.187</b></span>
+              <span>LR: <b>0.0025</b></span>
+            </div>
+          </div>
+          <p style="font-size: 0.92rem; color: #444444; margin-bottom: 1rem;">
+            High-craft client architectures, sub-millisecond tactile states, and fluid interaction engines.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Next.js 15 (App Router)</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">TypeScript</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Tailwind CSS</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">React 19 Core</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Framer Motion</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Responsive Ergonomics</span>
+          </div>
+        </div>
+
+        <!-- Epoch 04 -->
+        <div class="epoch-card" onmouseenter="updateTelemetry('04/05', '0.064', '0.0010', 'Product Design & UX Systems', 'Asymptotic refinement. Visual hierarchy, affordances, and cognitive friction eliminated.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: #111111; color: #FFF; padding: 0.15rem 0.5rem; font-weight: 700; font-size: 0.72rem;">EPOCH 04/05</span>
+              <span style="font-weight: 700; font-size: 0.92rem;">Product Design &amp; UX Systems</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.8rem;">
+              <span>LOSS: <b style="color: #D93829;">0.064</b></span>
+              <span>LR: <b>0.0010</b></span>
+            </div>
+          </div>
+          <p style="font-size: 0.92rem; color: #444444; margin-bottom: 1rem;">
+            Ergonomic human-interface engineering, design tokens, micro-interactions, and visual hierarchy.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Figma Master Components</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Interactive Wireframing</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">User Journey &amp; Flows</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Information Architecture</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">WCAG 2.1 AA Accessibility</span>
+          </div>
+        </div>
+
+        <!-- Epoch 05 -->
+        <div class="epoch-card" onmouseenter="updateTelemetry('05/05', '0.0012', '0.0001', 'DevOps, Foundations & Tooling', 'Final convergence criterion achieved. Validation loss: 0.0012. Ready for deployment.')" style="padding: 1.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; transition: all 0.2s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.75rem; margin-bottom: 1rem;" class="font-mono">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: #111111; color: #FFF; padding: 0.15rem 0.5rem; font-weight: 700; font-size: 0.72rem;">EPOCH 05/05</span>
+              <span style="font-weight: 700; font-size: 0.92rem;">DevOps, Foundations &amp; Tooling</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; font-size: 0.8rem;">
+              <span>LOSS: <b style="color: #D93829;">0.0012</b></span>
+              <span>LR: <b>0.0001</b></span>
+            </div>
+          </div>
+          <p style="font-size: 0.92rem; color: #444444; margin-bottom: 1rem;">
+            System-level fundamentals, continuous delivery, containerization, and revision control.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Git &amp; GitHub Workflows</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Docker Containers</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Vercel Edge &amp; Cloudflare</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Postman API Testing</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Java (OOP &amp; Algorithms)</span>
+            <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; border: 1px solid rgba(17,17,17,0.25); background: #E8E5DF;">Linux Shell &amp; Bash</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION C: CASE FILES (Exact Match: Reference Image 3) -->
+  <section id="cases" class="py-20 hairline-b">
+    <div class="max-w-7xl px-4">
+      
+      <!-- Top Left Tag & Counter -->
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem;">
+        <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
+          <div>CASE FILES</div>
+          <div>BSC-2026 / C</div>
+          <div style="margin-top: 0.35rem; color: #666666;">04 FILES · KEEP SCROLLING</div>
+        </div>
+      </div>
+
+      <!-- Section Title: Case files. -->
+      <div style="margin-bottom: 3.5rem;">
+        <h2 class="editorial-title" style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1;">
+          Case <em>files.</em>
+        </h2>
+      </div>
+
+      <!-- Manila Folder Cards Container: Side-by-Side Horizontal Scroll (Reference Image 3) -->
+      <div style="display: flex; gap: 1.75rem; overflow-x: auto; padding-bottom: 2rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+        
+        <!-- Folder 001: Demon Cinema -->
+        <div class="manila-card" onclick="openCaseDrawer('demon-cinema')">
+          <div class="manila-top-tab">
+            <span>CASE NO. 001</span>
+          </div>
+
+          <div class="manila-peeking-sheet font-mono">
+            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
+            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-001</span>
+          </div>
+
+          <div class="manila-card-body">
+            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+              DEPLOYED
+            </span>
+
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                Demon Cinema
+              </h3>
+              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                A movie-ticket booking app for an anime-thematic cinema franchise with 60-second express checkout and interactive seat matrix.
+              </p>
+            </div>
+
+            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+              Figma · Design Systems · Interactive Prototyping · WCAG AA
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 002: PostMint AI (with Fastener Dot) -->
+        <div class="manila-card" onclick="openCaseDrawer('postmint-ai')">
+          <div class="manila-top-tab">
+            <span class="manila-fastener-dot"></span>
+            <span>CASE NO. 002</span>
+          </div>
+
+          <div class="manila-peeking-sheet font-mono">
+            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
+            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-002</span>
+          </div>
+
+          <div class="manila-card-body">
+            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+              SHIPPED
+            </span>
+
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                PostMint AI
+              </h3>
+              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                Multilingual AI poster maker and caption studio built for Indian SMBs in English, Hindi, and Odia.
+              </p>
+            </div>
+
+            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+              React · Node.js · Express · MongoDB · Cloudinary · OpenAI API
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 003: NALCO Smart CMS -->
+        <div class="manila-card" onclick="openCaseDrawer('nalco-cms')">
+          <div class="manila-top-tab">
+            <span>CASE NO. 003</span>
+          </div>
+
+          <div class="manila-peeking-sheet font-mono">
+            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
+            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-003</span>
+          </div>
+
+          <div class="manila-card-body">
+            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+              DELIVERED
+            </span>
+
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                NALCO Smart CMS
+              </h3>
+              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                Mission-critical enterprise grievance telemetry and incident routing dashboard for National Aluminium Company Limited.
+              </p>
+            </div>
+
+            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+              MERN Stack · REST APIs · RBAC · MongoDB Atlas · Vercel
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 004: Ekatraa Marketplace -->
+        <div class="manila-card" onclick="openCaseDrawer('ekatraa-marketplace')">
+          <div class="manila-top-tab">
+            <span>CASE NO. 004</span>
+          </div>
+
+          <div class="manila-peeking-sheet font-mono">
+            <span style="font-size: 0.68rem; font-weight: 700; color: #D93829; letter-spacing: 0.14em;">CONFIDENTIAL</span>
+            <span style="font-size: 0.68rem; color: #887B67; letter-spacing: 0.08em;">BSC-2026-004</span>
+          </div>
+
+          <div class="manila-card-body">
+            <span class="rubber-stamp" style="position: absolute; top: 1.25rem; right: 1.25rem;">
+              ARCHIVED
+            </span>
+
+            <div>
+              <h3 style="font-family: var(--font-serif); font-size: 2.1rem; font-weight: 400; color: #111111; margin-bottom: 0.6rem; line-height: 1.1;">
+                Ekatraa Marketplace
+              </h3>
+              <p style="font-size: 0.88rem; color: #3A352C; line-height: 1.5; margin-bottom: 1.5rem;">
+                Event-vendor discovery architecture structuring matrimonial and regional cultural bookings.
+              </p>
+            </div>
+
+            <div class="font-mono" style="font-size: 0.72rem; color: #4A4337; letter-spacing: 0.04em;">
+              Information Architecture · User Flows · Motion Concepts · HTML/JS
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION D: FIELD RECORD -->
+  <section id="record" class="py-20 hairline-b">
+    <div class="max-w-7xl px-4">
+      
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem;">
+        <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
+          <div>FIELD RECORD</div>
+          <div>BSC-2026 / D</div>
+        </div>
+        <span class="font-mono" style="font-size: 0.72rem; color: #666666;">CHRONOLOGICAL REPOSITORY</span>
+      </div>
+
+      <div style="margin-bottom: 3.5rem;">
+        <h2 class="editorial-title" style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1;">
+          Field <em>record.</em>
+        </h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
+        
+        <!-- Experience -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 0.5rem;">
+            <span class="meta-tag" style="font-weight: 700; color: #111111;">01 // OPERATIONAL EXPERIENCE</span>
+            <span class="font-mono" style="color: #D93829; font-weight: 700; font-size: 0.75rem;">[03 ENTRIES]</span>
+          </div>
+
+          <!-- Role 1 -->
+          <div style="padding: 1.5rem; background: #DFDAD1; border: 1px solid var(--color-paper-border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 0.75rem;" class="font-mono">
+              <span style="font-size: 0.75rem; font-weight: 700; color: #D93829;">MAY 2025 – SEPT 2025</span>
+              <span style="background: #111111; color: #FFF; font-size: 0.65rem; padding: 0.15rem 0.4rem; font-weight: 700;">AI/ML LAB</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;">AI/ML Intern — Sahnar Technologies Pvt. Ltd.</h3>
+            <div class="font-mono" style="font-size: 0.75rem; color: #666666; margin-bottom: 1rem;">Bhubaneswar, Odisha</div>
+            <ul style="list-style: none; font-size: 0.88rem; color: #333333; line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Engineered automated data preprocessing, outlier cleansing, and feature encoding pipelines using Python, Pandas, and NumPy.</span></li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Trained and evaluated classical supervised learning models, benchmarking loss metrics and feature importance matrices.</span></li>
+            </ul>
+          </div>
+
+          <!-- Role 2 -->
+          <div style="padding: 1.5rem; background: #DFDAD1; border: 1px solid var(--color-paper-border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 0.75rem;" class="font-mono">
+              <span style="font-size: 0.75rem; font-weight: 700; color: #D93829;">ONGOING ENGAGEMENT</span>
+              <span style="background: #111111; color: #FFF; font-size: 0.65rem; padding: 0.15rem 0.4rem; font-weight: 700;">ENTERPRISE</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;">Full Stack Intern — National Aluminium Company Limited (NALCO)</h3>
+            <div class="font-mono" style="font-size: 0.75rem; color: #666666; margin-bottom: 1rem;">Anugul &amp; Bhubaneswar, Odisha</div>
+            <ul style="list-style: none; font-size: 0.88rem; color: #333333; line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Designed and deployed the end-to-end MERN complaint management system live for departmental enterprise staff.</span></li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Constructed REST API endpoints for grievance submission, file attachment handling, and role-based incident status dispatching.</span></li>
+            </ul>
+            <div style="border-top: 1px dashed rgba(17,17,17,0.2); padding-top: 0.75rem;" class="font-mono">
+              <a href="https://smart-complain-management-system-fr-peach.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #D93829; font-weight: 700; font-size: 0.75rem; text-decoration: underline;">
+                Inspect Live System ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education & Certifications -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 0.5rem;">
+            <span class="meta-tag" style="font-weight: 700; color: #111111;">02 // ACADEMIC RECORD &amp; ACCREDITATIONS</span>
+            <span class="font-mono" style="color: #D93829; font-weight: 700; font-size: 0.75rem;">[VERIFIED]</span>
+          </div>
+
+          <div style="padding: 1.5rem; background: #DFDAD1; border: 1px solid var(--color-paper-border);">
+            <div class="font-mono" style="font-size: 0.75rem; font-weight: 700; color: #D93829; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+              2023 – 2027 (IN PROGRESS)
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem;">B.Tech in Computer Science &amp; Engineering</h3>
+            <div class="font-mono" style="font-size: 0.75rem; color: #555555; margin-bottom: 0.75rem;">
+              GITA Autonomous College · Bhubaneswar, Odisha
+            </div>
+            <div class="font-mono" style="display: inline-block; background: #111111; color: #F4F2ED; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; margin-bottom: 1rem;">
+              CGPA: 8.5 / 10.0 (Top Percentile)
+            </div>
+            <ul style="list-style: none; font-size: 0.88rem; color: #444444; line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Core curriculum in Data Structures &amp; Algorithms, Object-Oriented Systems, Databases, and AI.</span></li>
+              <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">▪</span><span>Active participant in regional hackathons and UI/UX product engineering workshops.</span></li>
+            </ul>
+          </div>
+
+          <div style="padding: 1.5rem; background: #DFDAD1; border: 1px solid var(--color-paper-border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+              <span class="meta-tag" style="font-weight: 700;">VERIFIED CERTIFICATIONS</span>
+              <span class="rubber-stamp" style="font-size: 0.65rem; padding: 0.15rem 0.4rem;">AUTHENTIC</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+              <div style="display: flex; justify-content: space-between; align-items: start; border-bottom: 1px dashed rgba(17,17,17,0.15); padding-bottom: 0.6rem;">
+                <div>
+                  <div style="font-size: 0.9rem; font-weight: 700;">UI/UX Design Master Certification</div>
+                  <div class="font-mono" style="font-size: 0.7rem; color: #666666;">Design Systems &amp; User Psychology</div>
+                </div>
+                <span class="font-mono" style="font-size: 0.65rem; color: #777777;">[CERT-UIUX-09]</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: start; border-bottom: 1px dashed rgba(17,17,17,0.15); padding-bottom: 0.6rem;">
+                <div>
+                  <div style="font-size: 0.9rem; font-weight: 700;">Full Stack Web Development Certification</div>
+                  <div class="font-mono" style="font-size: 0.7rem; color: #666666;">MERN &amp; Modern Cloud Systems</div>
+                </div>
+                <span class="font-mono" style="font-size: 0.65rem; color: #777777;">[CERT-FSWD-14]</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: start;">
+                <div>
+                  <div style="font-size: 0.9rem; font-weight: 700;">Applied Machine Learning &amp; Data Science</div>
+                  <div class="font-mono" style="font-size: 0.7rem; color: #666666;">Sahnar Technologies Lab Internship Credential</div>
+                </div>
+                <span class="font-mono" style="font-size: 0.65rem; color: #777777;">[CERT-AIML-03]</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION E: THE EVIDENCE -->
+  <section id="evidence" class="py-20 hairline-b">
+    <div class="max-w-7xl px-4">
+      
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem;">
+        <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
+          <div>THE EVIDENCE</div>
+          <div>BSC-2026 / E</div>
+        </div>
+        <span class="font-mono" style="font-size: 0.72rem; color: #666666;">EXHIBITS 01 - 05</span>
+      </div>
+
+      <div style="margin-bottom: 3.5rem;">
+        <h2 class="editorial-title" style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1;">
+          The <em>evidence.</em>
+        </h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+        
+        <div style="padding: 2rem; background: #DFDAD1; border: 1px solid var(--color-paper-border); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 1rem;" class="font-mono">
+              <span style="font-weight: 700; font-size: 0.75rem;">Exhibit 1</span>
+              <span style="color: #D93829; font-weight: 700; font-size: 0.65rem;">ACADEMIC EXCELLENCE</span>
+            </div>
+            <div class="font-mono" style="font-size: 3.5rem; font-weight: 700; line-height: 1; color: #111111;">8.5</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.75rem 0 0.5rem 0;">Academic Distinction</h3>
+            <p style="font-size: 0.85rem; color: #444444; line-height: 1.5;">Maintained a top-tier cumulative CGPA across B.Tech Computer Science cohorts at GITA Autonomous College.</p>
+          </div>
+          <div style="border-top: 1px dashed rgba(17,17,17,0.2); padding-top: 0.75rem; margin-top: 1.5rem; display: flex; justify-content: space-between;" class="font-mono">
+            <span style="font-size: 0.65rem; color: #666666;">VERIFIED METRIC</span>
+            <span style="font-size: 0.65rem; color: #059669; font-weight: 700;">● CONFIRMED</span>
+          </div>
+        </div>
+
+        <div style="padding: 2rem; background: #DFDAD1; border: 1px solid var(--color-paper-border); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 1rem;" class="font-mono">
+              <span style="font-weight: 700; font-size: 0.75rem;">Exhibit 2</span>
+              <span style="color: #D93829; font-weight: 700; font-size: 0.65rem;">OPERATIONAL IMPACT</span>
+            </div>
+            <div class="font-mono" style="font-size: 3.5rem; font-weight: 700; line-height: 1; color: #111111;">×4</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.75rem 0 0.5rem 0;">Incident Triage Velocity</h3>
+            <p style="font-size: 0.85rem; color: #444444; line-height: 1.5;">Accelerated grievance dispatch and eliminated lost paperwork across NALCO municipal departments.</p>
+          </div>
+          <div style="border-top: 1px dashed rgba(17,17,17,0.2); padding-top: 0.75rem; margin-top: 1.5rem; display: flex; justify-content: space-between;" class="font-mono">
+            <span style="font-size: 0.65rem; color: #666666;">VERIFIED METRIC</span>
+            <span style="font-size: 0.65rem; color: #059669; font-weight: 700;">● CONFIRMED</span>
+          </div>
+        </div>
+
+        <div style="padding: 2rem; background: #DFDAD1; border: 1px solid var(--color-paper-border); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 1rem;" class="font-mono">
+              <span style="font-weight: 700; font-size: 0.75rem;">Exhibit 3</span>
+              <span style="color: #D93829; font-weight: 700; font-size: 0.65rem;">APPLIED INTELLIGENCE</span>
+            </div>
+            <div class="font-mono" style="font-size: 3.5rem; font-weight: 700; line-height: 1; color: #111111;">03</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.75rem 0 0.5rem 0;">Multilingual NLP Systems</h3>
+            <p style="font-size: 0.85rem; color: #444444; line-height: 1.5;">Deployed tri-lingual generative marketing copy engines spanning English, Hindi, and Odia dialects in PostMint.</p>
+          </div>
+          <div style="border-top: 1px dashed rgba(17,17,17,0.2); padding-top: 0.75rem; margin-top: 1.5rem; display: flex; justify-content: space-between;" class="font-mono">
+            <span style="font-size: 0.65rem; color: #666666;">VERIFIED METRIC</span>
+            <span style="font-size: 0.65rem; color: #059669; font-weight: 700;">● CONFIRMED</span>
+          </div>
+        </div>
+
+        <div style="padding: 2rem; background: #DFDAD1; border: 1px solid var(--color-paper-border); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 1rem;" class="font-mono">
+              <span style="font-weight: 700; font-size: 0.75rem;">Exhibit 4</span>
+              <span style="color: #D93829; font-weight: 700; font-size: 0.65rem;">DESIGN-TO-CODE</span>
+            </div>
+            <div class="font-mono" style="font-size: 3.5rem; font-weight: 700; line-height: 1; color: #111111;">100%</div>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0.75rem 0 0.5rem 0;">Full-Lifecycle Delivery</h3>
+            <p style="font-size: 0.85rem; color: #444444; line-height: 1.5;">Zero-gap execution from initial wireframe and user journey in Figma straight into production deployed code.</p>
+          </div>
+          <div style="border-top: 1px dashed rgba(17,17,17,0.2); padding-top: 0.75rem; margin-top: 1.5rem; display: flex; justify-content: space-between;" class="font-mono">
+            <span style="font-size: 0.65rem; color: #666666;">VERIFIED METRIC</span>
+            <span style="font-size: 0.65rem; color: #059669; font-weight: 700;">● CONFIRMED</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION F: MAKE CONTACT & CONVERGENCE FOOTER -->
+  <section id="contact" class="py-20" style="background-color: var(--color-paper);">
+    <div class="max-w-7xl px-4">
+      
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 2rem;">
+        <div class="font-mono" style="font-size: 0.72rem; line-height: 1.4; letter-spacing: 0.12em; color: #444444; text-transform: uppercase;">
+          <div>CONTACT</div>
+          <div>BSC-2026 / F</div>
+        </div>
+        <span class="font-mono" style="font-size: 0.72rem; color: #666666;">COMMUNICATIONS LOG</span>
+      </div>
+
+      <div style="margin-bottom: 3.5rem;">
+        <h2 class="editorial-title" style="font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1;">
+          Make <em>contact.</em>
+        </h2>
+      </div>
+
+      <!-- Direct Lines Table -->
+      <div style="border: 1px solid var(--color-paper-border); background: #DFDAD1; margin-bottom: 4rem;">
+        <div style="padding: 1rem 1.25rem; background: #D5D0C6; border-bottom: 1px solid rgba(17,17,17,0.15); display: flex; justify-content: space-between; align-items: center;" class="font-mono">
+          <span style="font-weight: 700; font-size: 0.75rem;">CHANNEL DIRECTORY // BSC TRANSMISSION LOG</span>
+          <span style="color: #D93829; font-weight: 700; font-size: 0.75rem;">ENCRYPTED TRANSMISSION</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+          
+          <div id="emailRow" style="padding: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.1); gap: 0.75rem; transition: background-color 0.2s;">
+            <div style="width: 200px;">
+              <span class="meta-tag" style="font-weight: 700;">EMAIL (DIRECT INK)</span>
+            </div>
+            <div class="font-mono" style="font-size: 0.85rem; font-weight: 700; flex: 1;">
+              bhabanishankarchaudhary@gmail.com
+            </div>
+            <div>
+              <button id="copyEmailBtn" onclick="copyEmailToClipboard()" class="font-mono" style="font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem; border: 1px solid #111111; background: #FAF9F6; cursor: pointer;">
+                CLICK TO COPY
+              </button>
+            </div>
+          </div>
+
+          <div style="padding: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.1); gap: 0.75rem;">
+            <div style="width: 200px;">
+              <span class="meta-tag" style="font-weight: 700;">LINKEDIN NETWORK</span>
+            </div>
+            <div class="font-mono" style="font-size: 0.85rem; font-weight: 700; flex: 1;">
+              linkedin.com/in/bhabanishankar-chaudhury
+            </div>
+            <div>
+              <a href="https://linkedin.com/in/bhabanishankar-chaudhury" target="_blank" rel="noopener noreferrer" onclick="playClick()" class="font-mono" style="display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem; border: 1px solid #111111; background: #FAF9F6;">
+                OPEN PROFILE ↗
+              </a>
+            </div>
+          </div>
+
+          <div style="padding: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(17,17,17,0.1); gap: 0.75rem;">
+            <div style="width: 200px;">
+              <span class="meta-tag" style="font-weight: 700;">GITHUB REPOSITORY</span>
+            </div>
+            <div class="font-mono" style="font-size: 0.85rem; font-weight: 700; flex: 1;">
+              github.com/Kbhabani01
+            </div>
+            <div>
+              <a href="https://github.com/Kbhabani01" target="_blank" rel="noopener noreferrer" onclick="playClick()" class="font-mono" style="display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem; border: 1px solid #111111; background: #FAF9F6;">
+                INSPECT CODE ↗
+              </a>
+            </div>
+          </div>
+
+          <div style="padding: 1.25rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem;">
+            <div style="width: 200px;">
+              <span class="meta-tag" style="font-weight: 700;">DOSSIER RESUME (PDF)</span>
+            </div>
+            <div class="font-mono" style="font-size: 0.85rem; font-weight: 700; flex: 1;">
+              Bhabani_Shankar_Chaudhury_Resume.pdf
+            </div>
+            <div>
+              <a href="assets/Bhabani_Shankar_Chaudhury_Resume.pdf" download onclick="playClick()" class="font-mono" style="display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.35rem 0.85rem; border: 1px solid #111111; background: #FAF9F6;">
+                DOWNLOAD PDF ↓
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Closing Convergence Banner -->
+      <div style="padding: 3rem 2.5rem; border: 1px solid var(--color-paper-border); background: #DFDAD1; margin-bottom: 4rem;">
+        
+        <div class="font-mono" style="font-size: 0.82rem; font-weight: 700; color: #D93829; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+          <span style="width: 7px; height: 7px; background: #D93829; border-radius: 50%; display: inline-block;"></span>
+          <span>loss 0.0012 · 5 epochs · ready</span>
+        </div>
+
+        <h3 class="editorial-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; margin: 0.5rem 0 1rem 0;">
+          Model <em>converged.</em>
+        </h3>
+
+        <p style="max-width: 42rem; font-size: 1rem; color: #444444; line-height: 1.7; margin-bottom: 2rem;">
+          The dossier has concluded with zero loss discrepancy. From Figma component hierarchies to full-stack MERN engines, Bhabani Shankar Chaudhary is prepared for immediate deployment to high-caliber product engineering and design teams.
+        </p>
+
+        <!-- Hand-drawn Signature Box -->
+        <div style="max-width: 340px; padding: 1.25rem; background: #E8E5DF; border: 1px solid rgba(17,17,17,0.25);">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(17,17,17,0.15); padding-bottom: 0.5rem; margin-bottom: 0.5rem;" class="font-mono">
+            <span style="font-size: 0.65rem; color: #666666;">AUTHENTICATION // SIGNATURE</span>
+            <span style="font-size: 0.65rem; color: #D93829; font-weight: 700;">VERIFIED</span>
+          </div>
+
+          <div style="height: 65px; width: 100%; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 320 80" style="width: 100%; height: 100%;" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path class="signature-path" d="M 20 60 C 25 35, 30 15, 35 12 C 45 6, 55 25, 45 42 C 38 55, 60 48, 75 40 C 90 32, 95 50, 105 45 C 115 40, 120 52, 135 44 C 145 38, 155 20, 160 16 C 170 10, 165 45, 175 42 C 185 39, 195 50, 210 40 C 225 30, 235 48, 250 42 C 265 36, 280 20, 290 18 C 300 16, 285 55, 310 45" />
+              <path class="signature-path" d="M 30 68 Q 160 55 305 60" stroke-width="1.8" />
+            </svg>
+          </div>
+
+          <div style="border-top: 1px solid rgba(17,17,17,0.15); padding-top: 0.5rem; display: flex; justify-content: space-between;" class="font-mono">
+            <span style="font-size: 0.7rem; font-weight: 600;">Bhabani Shankar Chaudhary</span>
+            <span style="font-size: 0.65rem; font-style: italic; color: #666666;">Signature verified</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Minimal Footer -->
+      <footer style="border-top: 1px solid var(--color-paper-border); padding-top: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;" class="font-mono">
+        <div style="font-size: 0.72rem; color: #666666;">
+          © 2026 Bhabani Shankar Chaudhary · CLASSIFIED INTELLIGENCE DOSSIER [BSC-2026]
+        </div>
+        <div style="display: flex; align-items: center; gap: 1.5rem; font-size: 0.72rem;">
+          <span style="color: #666666;">BHUBANESWAR, INDIA · 20.2961° N, 85.8245° E</span>
+          <a href="#top" onclick="playClick()" style="font-weight: 700; color: #111111; text-decoration: underline;">
+            Back to top ↑
+          </a>
+        </div>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- CLASSIFIED CASE FILE DRAWER MODAL -->
+  <div id="caseDrawerModal" onclick="handleDrawerBackdrop(event)">
+    <div style="width: 100%; max-width: 680px; height: 100%; background: #E8E5DF; border-left: 1px solid #111111; box-shadow: -10px 0 30px rgba(0,0,0,0.25); overflow-y: auto; display: flex; flex-direction: column;">
+      
+      <!-- Drawer Header -->
+      <div style="position: sticky; top: 0; z-index: 20; background: #DFDAD1; border-bottom: 1px solid var(--color-paper-border); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span id="drawerStatusStamp" class="rubber-stamp">DEPLOYED</span>
+          <div class="font-mono" style="font-size: 0.75rem;">
+            <b id="drawerCaseNo">CASE FILE #001</b>
+            <span id="drawerClassification" style="color: #666666; margin-left: 0.5rem;">// RESTRICTED</span>
+          </div>
+        </div>
+        <button onclick="closeCaseDrawer()" class="font-mono" style="font-size: 0.72rem; font-weight: 700; padding: 0.35rem 0.75rem; border: 1px solid #111111; background: #FAF9F6; cursor: pointer;">
+          [ESC ✕ CLOSE]
+        </button>
+      </div>
+
+      <!-- Drawer Body -->
+      <div style="padding: 2rem; display: flex; flex-direction: column; gap: 2rem; flex: 1;">
+        
+        <!-- Title & Category -->
+        <div style="border-bottom: 1px solid var(--color-paper-border); padding-bottom: 1.5rem;">
+          <div id="drawerCategory" class="meta-tag" style="color: #D93829; font-weight: 700; margin-bottom: 0.25rem;">
+            Category
+          </div>
+          <h2 id="drawerTitle" class="editorial-title" style="font-size: 2.5rem; font-weight: 400; margin-bottom: 0.75rem; line-height: 1;">
+            Project Title
+          </h2>
+          <div class="font-mono" style="font-size: 0.75rem; color: #666666; display: flex; gap: 1rem;">
+            <span id="drawerTimeframe">TIMEFRAME</span>
+            <span>·</span>
+            <span id="drawerRole">ROLE</span>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div id="drawerMetricsGrid" style="display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--color-paper-border); background: #DFDAD1; text-align: center; padding: 0.75rem 0;" class="font-mono">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Schematic Wireframe Mockup Container -->
+        <div style="border: 1px solid rgba(17,17,17,0.3); background: #111111; padding: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #333333; padding-bottom: 0.5rem; margin-bottom: 0.75rem; font-size: 0.65rem; color: #888888;" class="font-mono">
+            <span>SCHEMATIC VISUAL // ARTIFACT PREVIEW</span>
+            <span style="color: #D93829;">OPTICAL TELEMETRY</span>
+          </div>
+          <div id="drawerMockupVisual" style="width: 100%;">
+            <!-- SVG inserted by JS -->
+          </div>
+        </div>
+
+        <!-- Problem Brief -->
+        <div>
+          <div class="meta-tag" style="color: #111111; font-weight: 700; margin-bottom: 0.5rem;">
+            01 // PROBLEM STATEMENT &amp; MISSION CONTEXT
+          </div>
+          <p id="drawerBrief" style="font-size: 0.95rem; color: #333333; line-height: 1.7;">
+            Brief description...
+          </p>
+        </div>
+
+        <!-- Solution & Architecture -->
+        <div>
+          <div class="meta-tag" style="color: #111111; font-weight: 700; margin-bottom: 0.5rem;">
+            02 // ARCHITECTURE &amp; INTERFACE SOLUTION
+          </div>
+          <p id="drawerSolution" style="font-size: 0.95rem; color: #333333; line-height: 1.7; margin-bottom: 1rem;">
+            Solution description...
+          </p>
+          <ul id="drawerArchitectureList" class="font-mono" style="list-style: none; border-left: 2px solid #111111; padding-left: 1rem; font-size: 0.75rem; color: #444444; display: flex; flex-direction: column; gap: 0.5rem;">
+            <!-- Bullets inserted by JS -->
+          </ul>
+        </div>
+
+        <!-- Tech Stack -->
+        <div>
+          <div class="meta-tag" style="color: #111111; font-weight: 700; margin-bottom: 0.5rem;">
+            03 // TECHNICAL TELEMETRY STACK
+          </div>
+          <div id="drawerTechStack" style="display: flex; flex-wrap: wrap; gap: 0.45rem;">
+            <!-- Badges inserted by JS -->
+          </div>
+        </div>
+
+        <!-- Action Links -->
+        <div id="drawerActionLinks" style="border-top: 1px solid var(--color-paper-border); padding-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+          <!-- Links inserted by JS -->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // Audio Synthesizer via Web Audio API
+    let audioCtx = null;
+    let audioEnabled = false;
+
+    function initAudio() {
+      if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioCtx();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      const indicator = document.getElementById('audioIndicator');
+      const text = document.getElementById('audioStatusText');
+      if (audioEnabled) {
+        initAudio();
+        indicator.style.background = '#D93829';
+        text.innerText = 'AUDIO: ON';
+        playBlip(880, 0.05);
+      } else {
+        indicator.style.background = '#888888';
+        text.innerText = 'AUDIO';
+      }
+    }
+
+    function playClick() {
+      if (!audioEnabled) return;
+      initAudio();
+      if (!audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1100, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.03);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.035);
+      } catch (e) {}
+    }
+
+    function playThud() {
+      if (!audioEnabled) return;
+      initAudio();
+      if (!audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(30, audioCtx.currentTime + 0.12);
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.13);
+      } catch (e) {}
+    }
+
+    function playBlip(freq, duration) {
+      if (!audioEnabled) return;
+      initAudio();
+      if (!audioCtx) return;
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration + 0.01);
+      } catch (e) {}
+    }
+
+    // Live Local Clock in Bhubaneswar, India (IST)
+    function updateClock() {
+      const now = new Date();
+      const str = now.toLocaleTimeString('en-GB', {
+        timeZone: 'Asia/Kolkata',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      const clockEl = document.getElementById('liveClock');
+      if (clockEl) clockEl.innerText = str + ' IST';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Preloader sequence
+    let currentPct = 0;
+    const loadInterval = setInterval(() => {
+      currentPct += Math.floor(Math.random() * 5) + 3;
+      if (currentPct >= 100) {
+        currentPct = 100;
+        clearInterval(loadInterval);
+        document.getElementById('loadCounter').innerText = '100';
+        document.getElementById('loadBar').style.width = '100%';
+        document.getElementById('loadStatus').innerText = '> CLEARANCE GRANTED. ACCESSING DOSSIER...';
+        setTimeout(skipPreloader, 300);
+      } else {
+        document.getElementById('loadCounter').innerText = currentPct.toString().padStart(3, '0');
+        document.getElementById('loadBar').style.width = currentPct + '%';
+        const msgs = [
+          '> INITIALIZING CLASSIFIED PROTOCOL...',
+          '> SCANNING VISITOR BIOMETRICS...',
+          '> DECRYPTING ARCHIVE FILE BSC-2026...',
+          '> FETCHING CONVERGENCE EPOCHS...',
+          '> VERIFYING CLEARANCE LEVEL: VISITOR...'
+        ];
+        const idx = Math.min(Math.floor((currentPct / 100) * msgs.length), msgs.length - 1);
+        document.getElementById('loadStatus').innerText = msgs[idx];
+      }
+    }, 35);
+
+    function skipPreloader() {
+      clearInterval(loadInterval);
+      const pre = document.getElementById('preloader');
+      if (pre) {
+        pre.classList.add('faded');
+        setTimeout(() => { pre.style.display = 'none'; }, 450);
+      }
+    }
+
+    // Redaction Bars Toggle
+    function toggleRedact(el) {
+      el.classList.toggle('revealed');
+      playBlip(980, 0.05);
+    }
+
+    function revealAllRedactions() {
+      playThud();
+      document.querySelectorAll('.redaction-bar').forEach(el => el.classList.add('revealed'));
+    }
+
+    // Dynamic Telemetry Status Bar for Epochs
+    function updateTelemetry(epoch, loss, lr, cat, note) {
+      playBlip(500 + parseFloat(loss) * 400, 0.03);
+      const statusText = document.getElementById('telemetryStatusText');
+      const noteEl = document.getElementById('telemetryNote');
+      if (statusText) {
+        statusText.innerHTML = '<span style="color:#D93829; font-weight:bold;">EPOCH ' + epoch + '</span> · LOSS: <b style="background:#D93829; color:#FFF; padding:0 3px;">' + loss + '</b> · LR: ' + lr + ' · ' + cat;
+      }
+      if (noteEl) {
+        noteEl.innerText = note;
+      }
+    }
+
+    // Copy Email to Clipboard
+    function copyEmailToClipboard() {
+      playThud();
+      navigator.clipboard.writeText('bhabanishankarchaudhary@gmail.com').then(() => {
+        const btn = document.getElementById('copyEmailBtn');
+        const row = document.getElementById('emailRow');
+        btn.innerText = 'COPIED TO CLIPBOARD ✓';
+        btn.style.background = '#111111';
+        btn.style.color = '#FFF385';
+        row.style.backgroundColor = '#FFF385';
+        setTimeout(() => {
+          btn.innerText = 'CLICK TO COPY';
+          btn.style.background = '#FAF9F6';
+          btn.style.color = '#111111';
+          row.style.backgroundColor = 'transparent';
+        }, 2500);
+      });
+    }
+
+    // Case Data & Drawer Logic
+    const CASES = {
+      'demon-cinema': {
+        caseNo: '001',
+        status: 'DEPLOYED',
+        classification: 'CONFIDENTIAL // RESTRICTED',
+        title: 'Demon Cinema',
+        category: 'Movie-Ticket Booking · UI/UX Case Study & Prototype',
+        timeframe: 'Design Sprint · Case Study',
+        role: 'Lead Product Designer & UX Researcher',
+        brief: 'Cinema enthusiasts often suffer through bloated booking funnels with confusing seat matrices and aggressive upsells. The challenge was to architect a high-converting reservation flow where new visitors reserve tickets in under 60 seconds without losing the visceral cinematic excitement.',
+        solution: 'Conducted user flow mapping and built low-fidelity wireframes for rapid seat selection and payment verification. Created a dark-palette aesthetic with signal crimson neon accents, glass-panel surfaces, and an atomic Figma component system ensuring seamless brand consistency across all viewport sizes.',
+        architecture: [
+          '60-second express checkout flow with 3-step progressive disclosure',
+          'Interactive SVG seat selector matrix with real-time state feedback',
+          'Custom atomic design system with over 80 reusable components',
+          'Full mobile and tablet responsive ergonomics adhering to WCAG 2.1 AA'
+        ],
+        metrics: [
+          { label: 'Target Booking', value: '< 60s' },
+          { label: 'Figma Components', value: '80+' },
+          { label: 'Task Completion', value: '96%' }
+        ],
+        techStack: ['Figma', 'Design Systems', 'Interactive Prototyping', 'User Flows', 'WCAG AA'],
+        prototypeUrl: 'https://lnkd.in/gVtRdpXm',
+        githubUrl: 'https://github.com/Kbhabani01',
+        svg: `<svg viewBox="0 0 400 220" style="width: 100%; height: auto;"><rect width="400" height="220" fill="#141414" /><rect x="20" y="20" width="140" height="12" rx="4" fill="#D93829" /><path d="M 40 80 Q 200 60 360 80" stroke="#D93829" stroke-width="3" fill="none" /><text x="200" y="70" text-anchor="middle" fill="#888" font-size="9" font-family="monospace">CURVED IMAX SCREEN</text><rect x="40" y="195" width="320" height="18" rx="4" fill="#D93829" opacity="0.9" /><text x="200" y="208" text-anchor="middle" fill="#FFF" font-size="9" font-weight="bold" font-family="monospace">CONFIRM 2 SEATS (H4, H5) · RECLINER CLASS</text></svg>`
+      },
+      'postmint-ai': {
+        caseNo: '002',
+        status: 'SHIPPED',
+        classification: 'TOP SECRET // CLASSIFIED',
+        title: 'PostMint AI',
+        category: 'AI Marketing Studio · Product Design & Full-Stack Build',
+        timeframe: 'Independent Product Engineering',
+        role: 'Full-Stack Architect & Product Designer',
+        brief: 'Small business owners in Tier-2 and Tier-3 Indian cities (salons, coaching institutes, cafés) need high-quality social media collateral but lack graphic design skills or fluency in professional marketing copy.',
+        solution: 'Engineered a guided step-by-step editor that eliminates complex toolbars: select a layout, upload visual assets, generate AI-tailored marketing captions across English, Hindi, and Odia, and render production-ready PNGs in seconds. Built on a resilient MERN foundation with Cloudinary asset optimization.',
+        architecture: [
+          'Zero-cognitive-load canvas editor with deterministic layout constraints',
+          'Multi-prompt LLM engine tuned for regional cultural idioms and offers',
+          'Dual serverless pipeline for rapid image compositing and CDN delivery',
+          'Decoupled REST API backend with automated session persistence'
+        ],
+        metrics: [
+          { label: 'Languages Supported', value: '3 (EN/HI/OR)' },
+          { label: 'Poster Generation', value: '< 3.5s' },
+          { label: 'Workflow Clicks', value: '3 Steps' }
+        ],
+        techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'OpenAI API'],
+        githubUrl: 'https://github.com/Kbhabani01',
+        svg: `<svg viewBox="0 0 400 220" style="width: 100%; height: auto;"><rect width="400" height="220" fill="#141414" /><rect x="20" y="20" width="100" height="12" rx="4" fill="#FFF" /><rect x="300" y="16" width="80" height="20" rx="4" fill="#D93829" /><text x="340" y="30" text-anchor="middle" fill="#FFF" font-size="9" font-weight="bold" font-family="monospace">EXPORT PNG</text><rect x="20" y="50" width="220" height="150" rx="8" fill="#222" stroke="#444" /><circle cx="130" cy="115" r="40" fill="#D93829" opacity="0.7" /><text x="130" y="120" text-anchor="middle" fill="#FFF" font-size="12" font-weight="bold" font-family="monospace">OFFER 50% OFF</text><rect x="260" y="50" width="120" height="24" rx="4" fill="#2A2A2A" stroke="#555" /><text x="320" y="66" text-anchor="middle" fill="#EEE" font-size="8" font-family="monospace">EN · HI · ODIA</text><rect x="260" y="168" width="120" height="32" rx="4" fill="#D93829" /><text x="320" y="188" text-anchor="middle" fill="#FFF" font-size="8" font-weight="bold" font-family="monospace">GENERATE COPY</text></svg>`
+      },
+      'nalco-cms': {
+        caseNo: '003',
+        status: 'DELIVERED',
+        classification: 'OFFICIAL ENTERPRISE RECORD',
+        title: 'NALCO Smart CMS',
+        category: 'Enterprise Telemetry Dashboard · Design & Production Build',
+        timeframe: 'Ongoing Enterprise Engagement',
+        role: 'Full Stack Engineering Intern',
+        brief: "NALCO's internal departmental complaints were historically bottlenecked in fragmented email threads and manual paper slips, leading to SLA breaches, lost escalation histories, and zero executive visibility.",
+        solution: 'Architected a unified digital complaint telemetry system with role-based authentication (Staff vs. Department Head vs. Super Admin). Employees log grievances with automated category routing; admins monitor open vs. resolved cases via a real-time analytics dashboard with full audit trails.',
+        architecture: [
+          'Role-Based Access Control (RBAC) across 4 operational tiers',
+          'Automated ticket routing algorithms based on department taxonomy',
+          'Live incident status timeline and SLA countdown triggers',
+          'Executive overview dashboard displaying daily resolution throughput'
+        ],
+        metrics: [
+          { label: 'Triage Acceleration', value: '4× Faster' },
+          { label: 'Traceability', value: '100%' },
+          { label: 'SLA Breaches', value: '-72%' }
+        ],
+        techStack: ['MERN Stack', 'Node.js/Express', 'MongoDB Atlas', 'REST APIs', 'Vercel'],
+        liveUrl: 'https://smart-complain-management-system-fr-peach.vercel.app/',
+        githubUrl: 'https://github.com/Kbhabani01',
+        svg: `<svg viewBox="0 0 400 220" style="width: 100%; height: auto;"><rect width="400" height="220" fill="#141414" /><rect x="0" y="0" width="90" height="220" fill="#1E1E1E" /><rect x="15" y="20" width="60" height="10" rx="3" fill="#D93829" /><rect x="105" y="20" width="85" height="36" rx="4" fill="#222" stroke="#333" /><text x="115" y="38" fill="#D93829" font-size="11" font-weight="bold" font-family="monospace">42 OPEN</text><rect x="200" y="20" width="85" height="36" rx="4" fill="#222" stroke="#333" /><text x="210" y="38" fill="#4ADE80" font-size="11" font-weight="bold" font-family="monospace">318 RESOLVED</text><rect x="105" y="70" width="275" height="135" rx="6" fill="#1A1A1A" stroke="#333" /><circle cx="120" cy="110" r="4" fill="#D93829" /><text x="135" y="113" fill="#EEE" font-size="8" font-family="monospace">REF #9012 - Dept Electrical - High Priority</text><circle cx="120" cy="140" r="4" fill="#4ADE80" /><text x="135" y="143" fill="#EEE" font-size="8" font-family="monospace">REF #9011 - Water Line Intake - Dispatched</text></svg>`
+      },
+      'ekatraa-marketplace': {
+        caseNo: '004',
+        status: 'ARCHIVED',
+        classification: 'CONFIDENTIAL // RESTRICTED',
+        title: 'Ekatraa Marketplace',
+        category: 'Event-Vendor Discovery · Information Architecture & Prototype',
+        timeframe: 'Product Architecture Research',
+        role: 'UX Architect & Interaction Designer',
+        brief: 'Event organizing in regional India is a high-stress, fragmented process where clients juggle catering, mehendi artists, decorators, and photographers without central verification or cohesive price discovery.',
+        solution: "Designed a contextual parent-to-child taxonomy where selecting 'Marriage' dynamically surfaces paired services (mehendi, mandap decor, cinematic videography) in an intuitive discovery feed. Built an interactive high-fidelity prototype simulating filter states and vendor portfolio showcases.",
+        architecture: [
+          'Dynamic category hierarchy linking prerequisite and complementary services',
+          'Vendor verification badges with transparent portfolio media grids',
+          'Frictionless booking inquiry dispatch with instant date-availability check',
+          'Fluid card transitions engineered with lightweight micro-interaction code'
+        ],
+        metrics: [
+          { label: 'Vendor Categories', value: '16 Groups' },
+          { label: 'Discovery Steps', value: '2 Clicks' },
+          { label: 'Cross-Service Lift', value: '+38%' }
+        ],
+        techStack: ['User Flows', 'Information Architecture', 'Motion Systems', 'HTML5/CSS3/JS'],
+        githubUrl: 'https://github.com/Kbhabani01',
+        svg: `<svg viewBox="0 0 400 220" style="width: 100%; height: auto;"><rect width="400" height="220" fill="#141414" /><rect x="20" y="18" width="120" height="12" rx="4" fill="#FFF" /><rect x="20" y="42" width="360" height="26" rx="13" fill="#222" stroke="#444" /><text x="40" y="58" fill="#777" font-size="9" font-family="monospace">Search vendors: Mandap, Mehendi, Photography...</text><rect x="20" y="152" width="360" height="52" rx="6" fill="#2A2A2A" stroke="#D93829" stroke-width="1" /><text x="35" y="172" fill="#D93829" font-size="9" font-weight="bold" font-family="monospace">CONTEXTUAL RECOMMENDATIONS FOR WEDDINGS</text></svg>`
+      }
+    };
+
+    function openCaseDrawer(caseId) {
+      playThud();
+      const p = CASES[caseId];
+      if (!p) return;
+
+      document.getElementById('drawerStatusStamp').innerText = p.status;
+      document.getElementById('drawerCaseNo').innerText = 'CASE FILE #' + p.caseNo;
+      document.getElementById('drawerClassification').innerText = '// ' + p.classification;
+      document.getElementById('drawerCategory').innerText = p.category;
+      document.getElementById('drawerTitle').innerText = p.title;
+      document.getElementById('drawerTimeframe').innerText = 'TIMEFRAME: ' + p.timeframe;
+      document.getElementById('drawerRole').innerText = 'ROLE: ' + p.role;
+      document.getElementById('drawerBrief').innerText = p.brief;
+      document.getElementById('drawerSolution').innerText = p.solution;
+      document.getElementById('drawerMockupVisual').innerHTML = p.svg;
+
+      const mGrid = document.getElementById('drawerMetricsGrid');
+      mGrid.innerHTML = p.metrics.map(m => `
+        <div style="padding: 0.5rem; border-right: 1px solid var(--color-paper-border);">
+          <div style="font-size: 1.6rem; font-weight: 700; color: #D93829;">${m.value}</div>
+          <div style="font-size: 0.65rem; color: #555555; text-transform: uppercase;">${m.label}</div>
+        </div>
+      `).join('');
+
+      const aList = document.getElementById('drawerArchitectureList');
+      aList.innerHTML = p.architecture.map(a => `
+        <li style="display: flex; gap: 0.5rem;"><span style="color: #D93829; font-weight: bold;">›</span><span>${a}</span></li>
+      `).join('');
+
+      const tStack = document.getElementById('drawerTechStack');
+      tStack.innerHTML = p.techStack.map(t => `
+        <span class="font-mono" style="padding: 0.2rem 0.55rem; font-size: 0.72rem; background: #111111; color: #F4F2ED; font-weight: 600;">${t}</span>
+      `).join('');
+
+      const aLinks = document.getElementById('drawerActionLinks');
+      let linksHtml = '';
+      if (p.liveUrl) {
+        linksHtml += `<a href="${p.liveUrl}" target="_blank" rel="noopener noreferrer" onclick="playClick()" class="btn-tactile" style="background:#D93829; border-color:#D93829;"><span>Inspect Live Deployment ↗</span></a>`;
+      }
+      if (p.prototypeUrl) {
+        linksHtml += `<a href="${p.prototypeUrl}" target="_blank" rel="noopener noreferrer" onclick="playClick()" class="btn-tactile" style="background:#111111; color:#FFF;"><span>View Prototype (Figma) ↗</span></a>`;
+      }
+      if (p.githubUrl) {
+        linksHtml += `<a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer" onclick="playClick()" class="btn-tactile btn-tactile-outline"><span>GitHub Repository ↗</span></a>`;
+      }
+      aLinks.innerHTML = linksHtml;
+
+      document.getElementById('caseDrawerModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCaseDrawer() {
+      playClick();
+      document.getElementById('caseDrawerModal').classList.remove('open');
+      document.body.style.overflow = 'unset';
+    }
+
+    function handleDrawerBackdrop(e) {
+      if (e.target.id === 'caseDrawerModal') {
+        closeCaseDrawer();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCaseDrawer();
+    });
+  </script>
+</body>
+</html>
